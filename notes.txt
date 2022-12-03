@@ -1,0 +1,1318 @@
+94:b4:0f:0f:bb:a1\Higgins Labs
+1c:28:af:0f:e5:a1\Unity Hall 5th
+94:b4:0f:28:b0:10\Olin Hall
+94:b4:0f:27:34:f0\Goddard Hall
+94:b4:0f:0f:b1:71\Stoddard 304
+94:b4:0f:26:fd:91\Atwater Kent
+48:2f:6b:fb:78:a2\Fuller Apartments 12
+94:b4:0f:27:01:b2\Goddard Hall
+94:b4:0f:0f:b1:81\Higgins Labs
+20:a6:cd:00:4a:12\Innovation 2nd Floor
+1c:28:af:1f:94:f0\Unity Hall 5th
+ac:a3:1e:f3:62:10\Founders Hall
+94:b4:0f:27:00:94\Goddard Hall
+ac:a3:1e:f3:84:24\Founders Hall
+d8:84:66:7d:5d:45\Logan Airport A20
+20:a6:cd:00:42:71\Innovation 2nd Floor
+1c:28:af:0f:fc:f2\Unity Hall 5th
+ac:a3:1e:f3:73:60\Founders Hall
+ac:a3:1e:f3:67:c0\Founders Hall
+94:64:24:c1:ae:d2\Campus Center
+94:b4:0f:0f:bc:93\Higgins Labs
+c6:8d:f3:bb:f2:06\Near Higgins/Stoddard
+20:a6:cd:00:47:02\Innovation Studio
+b8:9f:09:43:10:30\Mom's Car
+20:a6:cd:00:3b:13\Innovation Studio
+94:b4:0f:0f:aa:72\Higgins Labs
+04:a2:22:e8:3c:4a\Lake House
+20:a6:cd:00:47:10\Innovation Studio
+80:8d:b7:76:a5:21\Stoddard Hall
+94:b4:0f:0f:ba:40\Higgins Labs
+94:b4:0f:0f:ba:e4\Higgins Labs
+20:a6:cd:00:4a:53\Innovation Studio
+ac:a3:1e:f3:57:40\Founders Hall
+ac:a3:1e:f3:66:14\Founders Hall
+94:b4:0f:0f:bf:81\Olin Hall
+d8:84:66:7d:61:84\Logan Airport A22
+9c:1c:12:94:08:33\Founders Hall
+94:b4:0f:28:b1:53\Higgins Labs
+24:f2:7f:ca:d0:90\Innovation Robotics
+ac:a3:1e:f3:84:22\Founders Hall
+ac:a3:1e:58:4c:41\Atwater Kent
+20:a6:cd:00:4a:b0\Innovation Studio
+94:b4:0f:0f:b4:04\Higgins Labs
+94:b4:0f:27:2c:01\CC Basement
+1c:28:af:1f:8e:52\Unity Hall 5th
+ac:a3:1e:5c:cf:82\Atwater Kent
+14:91:82:2d:e0:2a\Unknown Founders
+ac:a3:1e:f3:83:e2\Founders Hall
+94:b4:0f:29:62:c1\CC Peterson Room
+94:b4:0f:10:27:b4\Harrington Auditorium
+20:a6:cd:00:50:f3\Innovation Studio
+1c:28:af:1f:8e:53\Unity Hall 5th
+94:b4:0f:27:00:82\Goddard Hall
+ac:a3:1e:f3:84:32\Founders Hall
+ac:a3:1e:f3:72:f0\Founders Hall 108
+94:b4:0f:10:4d:a1\Harrington Auditorium
+94:b4:0f:27:3a:12\CC Couch Room
+94:64:24:c0:d2:20\Campus Center
+1c:28:af:1f:8e:40\Unity Hall 5th
+20:a6:cd:00:42:61\Innovation 2nd Floor
+ac:a3:1e:58:7d:30\Olin Hall 107
+94:b4:0f:28:b1:d4\Higgins Labs
+94:b4:0f:27:05:b0\Goddard Hall 110
+ac:a3:1e:f3:62:14\Founders Hall
+94:b4:0f:0f:b1:90\Higgins Labs
+94:b4:0f:27:36:30\Goddard Hall
+ac:a3:1e:58:7d:c2\Higgins Labs
+94:64:24:c1:ae:b2\Campus Center
+94:b4:0f:0f:bc:81\Higgins Labs
+98:9d:5d:ce:36:f4\1 Metcalf Rd
+ac:a3:1e:58:7d:22\Olin Hall 107 Left Side
+94:b4:0f:0f:bc:e0\Higgins Labs
+94:b4:0f:0f:b2:13\Atwater Kent
+94:b4:0f:27:3a:10\CC Couch Room
+ac:a3:1e:5c:cc:b4\Atwater Kent
+94:b4:0f:0f:b6:e2\Higgins Labs
+94:b4:0f:0f:bb:a0\Higgins Labs
+94:b4:0f:27:69:84\Goddard Hall
+94:b4:0f:10:79:a1\Harrington Auditorium
+20:a6:cd:00:4a:a2\Innovation Studio
+20:a6:cd:00:47:12\Innovation Studio
+d0:d3:e0:a4:eb:92\Unity Hall 500
+94:64:24:c1:87:81\CC Basement
+94:b4:0f:0f:c4:92\Olin Hall
+94:b4:0f:27:69:94\Goddard Hall
+94:b4:0f:0f:b7:31\Founders/Unity
+20:a6:cd:00:4a:52\Innovation Studio
+20:a6:cd:00:4b:c1\Innovation Studio
+94:b4:0f:0f:b0:13\Founders Hall
+ac:a3:1e:58:ae:d2\Atwater Kent
+1c:28:af:0f:3d:e1\Unity Hall 5th
+ac:a3:1e:f3:66:72\Founders Hall
+94:b4:0f:28:a7:82\Higgins Labs
+ac:a3:1e:f3:54:80\Founders Hall
+94:b4:0f:0f:b3:24\Stoddard Hall
+94:b4:0f:27:0e:80\Stoddard Hall
+ac:a3:1e:f3:73:62\Founders Hall
+94:b4:0f:27:02:b1\Goddard Hall
+c4:f1:74:c1:6e:27\1187 Washington St, San Francisco
+94:b4:0f:27:3a:00\CC Couch Room
+20:a6:cd:00:4a:01\Innovation 2nd Floor
+18:64:72:5d:e4:11\CC Basement
+94:b4:0f:0f:b7:30\Founders/Unity
+ac:a3:1e:f3:66:04\Founders Hall
+44:a5:6e:e9:dc:77\Mare Hotspot
+20:a6:cd:00:44:f3\Innovation Studio
+20:a6:cd:00:4a:e2\Innovation Studio
+1c:28:af:0d:a8:a2\Unity Hall 5th
+d0:d3:e0:a9:ed:52\Unity Hall 5th Campus Side
+94:b4:0f:27:39:c2\Campus Center
+20:a6:cd:00:49:01\Innovation Studio
+94:b4:0f:27:05:a2\Goddard Hall 110
+ac:a3:1e:58:7d:32\Olin Hall 107 Middle
+94:b4:0f:0f:ba:50\Higgins Labs
+ac:a3:1e:f3:54:63\Founders Hall
+1c:28:af:1f:a1:11\Unity Hall 5th
+20:a6:cd:00:4a:41\Innovation Studio
+ac:a3:1e:58:7d:21\Olin Hall 107 Left Side
+94:b4:0f:0f:b3:20\Stoddard Hall
+ac:a3:1e:f3:66:70\Founders Hall
+20:a6:cd:00:4a:e3\Innovation Studio
+94:b4:0f:10:75:f3\Harrington Auditorium
+20:a6:cd:00:46:d1\Innovation Studio
+20:a6:cd:00:4b:c2\Innovation Studio
+94:64:24:c1:13:d2\CC Couch Room
+ac:a3:1e:f3:66:62\Founders Hall
+94:b4:0f:0f:ba:42\Higgins Labs
+94:b4:0f:27:34:e4\Goddard Hall
+94:b4:0f:27:3a:01\CC Couch Room
+ac:a3:1e:58:4c:52\Atwater Kent
+3e:6a:a7:82:25:d0\Higgins 2nd Floor
+20:a6:cd:00:41:b1\Innovation Studio
+94:b4:0f:0f:a9:e0\Stoddard Hall
+20:a6:cd:00:49:11\Innovation Studio
+94:b4:0f:10:4d:b0\Harrington Auditorium
+20:a6:cd:00:4a:f2\Innovation Studio
+ac:a3:1e:f3:64:54\Founders Hall
+1c:28:af:0f:fc:e3\Unity Hall 5th
+94:b4:0f:0f:a9:f0\Stoddard Hall
+d0:d3:e0:aa:48:10\Unity Hall 5th
+94:b4:0f:27:02:b3\Goddard Hall
+1c:28:af:1f:a1:12\Unity Hall 5th
+ac:a3:1e:f3:64:50\Founders Hall
+ac:a3:1e:5c:cc:a0\Atwater Kent
+20:a6:cd:00:42:d2\Innovation Studio
+ac:a3:1e:f3:55:81\Founders Hall
+d0:d3:e0:a4:95:20\Unity Hall 500
+ac:a3:1e:f3:67:c2\Founders Hall
+1c:28:af:0d:a8:b3\Unity Hall 5th
+1c:28:af:0a:5f:23\Unity Hall 5th
+1c:28:af:0f:fa:a3\Unity Hall 5th
+94:b4:0f:27:25:a3\Campus Center
+20:a6:cd:00:41:a1\Innovation Studio
+ac:a3:1e:5c:cc:b0\Atwater Kent
+1c:28:af:0f:f9:00\Unity Hall 5th
+20:a6:cd:00:43:52\Innovation Studio
+d8:84:66:7d:5d:4c\Logan Airport A20
+94:b4:0f:0f:ba:44\Higgins Labs
+f6:96:34:88:b2:8d\Jonathan's PC
+20:a6:cd:00:45:92\Innovation Studio
+20:a6:cd:00:44:e2\Innovation Studio
+20:a6:cd:00:3b:02\Innovation Studio
+94:b4:0f:0f:b2:11\Atwater Kent
+ac:a3:1e:58:ae:c4\Atwater Kent
+ac:a3:1e:5c:cc:b2\Atwater Kent
+94:b4:0f:27:05:b1\Goddard Hall 110
+94:b4:0f:29:63:00\CC 2nd Floor
+94:b4:0f:28:b1:50\Higgins Labs
+94:b4:0f:0f:b4:14\Stoddard Hall
+44:a5:6e:e9:dc:79\Mare Hotspot
+1c:28:af:09:ee:b2\Unity Hall 5th
+94:b4:0f:10:4d:a3\Harrington Auditorium
+1a:47:3d:71:04:8a\Atwater Kent Printer
+18:64:72:5d:e4:10\CC Basement
+ac:a3:1e:f3:64:52\Founders Hall
+1c:28:af:1f:7f:21\Unity Hall 5th
+1c:28:af:0f:fc:e2\Unity Hall 5th
+80:8d:b7:05:a3:11\Innovation Studio
+94:b4:0f:0f:bc:91\Higgins Labs
+80:8d:b7:05:a3:02\Innovation Studio
+d8:84:66:7d:61:85\Logan Airport A22
+94:b4:0f:0f:c0:72\CC Basement
+1c:28:af:0f:3d:f3\Unity Hall 5th
+1c:28:af:0f:e5:a3\Unity Hall 5th
+1c:28:af:0f:e5:a2\Unity Hall 5th
+ac:a3:1e:58:8a:33\Olin Hall 107 Right Side
+94:b4:0f:27:66:e3\Goddard Hall
+48:5d:36:2e:e8:1e\4 Metcalf Rd
+94:b4:0f:10:79:b3\Harrington Auditorium
+ac:a3:1e:d2:d9:e4\Founders Hall
+ac:a3:1e:58:8a:31\Olin Hall 107 Right Side
+94:b4:0f:28:b0:12\Olin Hall
+1c:28:af:1f:8e:50\Unity Hall 5th
+ac:a3:1e:f3:83:e4\Founders Hall
+1c:28:af:0f:3d:f2\Unity Hall 5th
+d8:84:66:7d:5d:4a\Logan Airport A20
+ac:a3:1e:f3:64:42\Founders Hall
+94:b4:0f:27:39:d4\Campus Center
+94:b4:0f:26:fd:81\Atwater Kent
+94:b4:0f:27:05:b2\Goddard Hall 110
+94:b4:0f:29:63:10\CC 2nd Floor
+94:b4:0f:0f:b6:f0\Higgins 154
+94:b4:0f:0f:a9:e2\Stoddard Hall
+ac:a3:1e:d2:d9:22\Founders Hall
+9e:ae:d3:c4:bf:4c\Innovation Studio
+1c:28:af:0f:3d:f0\Unity Hall 5th
+94:b4:0f:0f:b7:22\Founders Hall
+94:b4:0f:0f:b0:a0\Stoddard Hall
+80:8d:b7:76:a5:20\Stoddard Hall
+94:b4:0f:27:02:a1\Goddard Hall
+ac:a3:1e:58:8a:20\Olin Hall 107 Right Side
+ac:a3:1e:f3:84:30\Founders Hall
+ac:a3:1e:58:48:f2\Atwater Kent 116
+20:a6:cd:00:42:72\Innovation 2nd Floor
+ac:a3:1e:f3:66:00\Founders Hall
+94:b4:0f:10:65:d3\Harrington Auditorium
+ac:a3:1e:f3:54:81\Founders Hall
+94:64:24:c4:b9:62\CC Basement
+94:b4:0f:28:ac:70\Stoddard Hall
+20:a6:cd:00:4a:43\Innovation Studio
+94:b4:0f:2e:46:f2\Unity Hall 5th
+ac:a3:1e:f3:62:12\Founders Hall
+94:64:24:c3:d6:41\CC Basement
+94:b4:0f:0f:b1:83\Higgins Labs
+94:b4:0f:0f:b4:b1\Stoddard Hall
+94:b4:0f:0f:ba:a1\CC 2nd Floor
+c4:f1:74:c0:8a:86\1187 Washington St, San Francisco
+94:b4:0f:0f:bc:44\Higgins Labs
+20:a6:cd:00:41:b3\Innovation Studio
+c4:f1:74:c1:6e:28\1187 Washington St, San Francisco
+94:64:24:c0:d2:01\Campus Center
+d0:d3:e0:a4:95:33\Unity Hall 500
+1c:28:af:1f:c2:d0\Unity Hall 5th
+d0:d3:e0:ae:ce:d3\Unity Hall 5th
+1c:28:af:1f:94:f3\Unity Hall 5th
+ea:cb:ac:4a:c9:1d\CC Dunkin Donuts
+94:b4:0f:0f:bc:f3\Higgins Labs
+20:a6:cd:00:48:41\Innovation Studio
+ac:a3:1e:f3:83:f4\Founders Hall
+20:a6:cd:00:5c:62\Innovation Studio
+94:b4:0f:0f:b9:32\Higgins Labs
+20:a6:cd:00:43:43\Innovation Studio
+20:a6:cd:00:45:91\Innovation Studio
+94:b4:0f:0f:b4:a1\Higgins Labs
+1c:28:af:0f:3d:e3\Unity Hall 5th
+1c:28:af:0f:fa:a1\Unity Hall 5th
+94:b4:0f:0f:b2:84\Stoddard Hall
+d0:d3:e0:ae:ce:d2\Unity Hall 5th
+20:a6:cd:00:4b:d1\Innovation Studio
+94:b4:0f:0f:b4:10\Stoddard Hall
+ac:a3:1e:58:7b:60\Olin Hall 107 Middle
+1c:28:af:0f:fa:b1\Unity Hall 5th
+ac:a3:1e:f3:54:83\Founders Hall
+ac:a3:1e:5c:cf:91\Atwater Kent
+ac:a3:1e:f3:53:14\Founders Hall
+94:b4:0f:0f:b9:84\Higgins Labs
+94:b4:0f:27:02:b0\Goddard Hall
+ac:a3:1e:f3:66:60\Founders Hall
+ac:a3:1e:5c:cf:84\Atwater Kent
+1c:28:af:0a:5f:20\Unity Hall 5th
+1c:28:af:1f:94:e0\Unity Hall 5th
+ac:a3:1e:58:ae:d0\Atwater Kent
+94:b4:0f:0f:b2:90\Stoddard Hall
+94:b4:0f:0f:bb:b3\Higgins Labs
+94:b4:0f:10:27:b0\Harrington Auditorium
+1c:28:af:09:ee:b0\Unity Hall 5th
+94:b4:0f:26:fd:90\Atwater Kent
+48:2f:6b:00:fc:f2\East Hall 414
+94:b4:0f:10:79:a0\Harrington Auditorium
+94:64:24:c1:69:b0\Campus Center
+94:b4:0f:27:36:34\Goddard Hall
+24:f2:7f:ca:d0:80\Innovation Robotics
+20:a6:cd:00:4a:b2\Innovation Studio
+20:a6:cd:00:46:c3\Innovation Studio
+94:b4:0f:27:34:c2\Higgins Labs
+80:8d:b7:76:a5:31\Stoddard Hall
+d8:84:66:7d:61:8c\Logan Airport A22
+94:64:24:c1:13:f2\CC Couch Room
+ac:a3:1e:f3:73:74\Founders Hall
+d0:d3:e0:aa:48:02\Unity Hall 5th
+1c:28:af:0f:f9:10\Unity Hall 5th
+20:a6:cd:00:49:02\Innovation Studio
+94:b4:0f:27:00:84\Goddard Hall
+48:2f:6b:00:fc:e0\East Hall 414
+20:a6:cd:00:4a:a0\Innovation Studio
+ac:a3:1e:f3:53:04\Founders Hall
+1c:28:af:0f:fc:f0\Unity Hall 5th
+1c:28:af:0a:5f:32\Unity Hall 500
+1c:28:af:0f:f9:01\Unity Hall 5th
+20:a6:cd:00:42:62\Innovation 2nd Floor
+94:b4:0f:0f:b6:f2\Higgins 154
+94:b4:0f:27:66:f0\Goddard Hall
+d0:d3:e0:a9:ed:51\Unity Hall 5th Campus Side
+94:b4:0f:27:3a:11\CC Couch Room
+94:b4:0f:28:b0:14\Olin Hall
+94:64:24:c1:69:d0\Campus Center
+b0:b8:67:cc:dd:a2\Innovation 203
+94:64:24:c1:87:a2\CC Basement
+1c:b7:2c:76:29:e4\Innovation Studio
+ac:a3:1e:f3:54:61\Founders Hall
+94:b4:0f:0f:b0:12\Founders/Unity
+d0:d3:e0:a9:ed:42\Unity Hall 5th Campus Side
+94:b4:0f:28:b1:51\Higgins Labs
+ac:a3:1e:f3:59:34\Founders Hall
+20:a6:cd:00:41:e2\Innovation Studio
+ac:a3:1e:58:48:e1\Atwater Kent 116
+94:b4:0f:10:27:a0\Harrington Auditorium
+20:a6:cd:00:4b:91\Innovation Studio
+94:64:24:c4:b9:81\CC Basement
+ac:a3:1e:f3:67:d0\Founders Hall
+94:b4:0f:2b:a7:c3\Higgins Labs
+94:b4:0f:28:ac:64\Stoddard Hall
+94:b4:0f:27:66:e0\Goddard Hall
+20:a6:cd:00:4a:a1\Innovation Studio
+18:64:72:37:f3:60\Stoddard Hall
+94:64:24:c1:9b:f2\Higgins Labs
+94:b4:0f:10:6a:81\Harrington Auditorium
+ac:a3:1e:d2:ca:a0\Founders Hall
+94:b4:0f:10:75:f1\Harrington Auditorium
+ac:a3:1e:58:48:f4\Atwater Kent 116
+94:64:24:c3:d6:40\CC Basement
+c4:f1:74:c0:8a:87\1187 Washington St, San Francisco
+20:a6:cd:00:4b:11\Innovation Studio
+94:b4:0f:10:6a:91\Harrington Auditorium
+1c:28:af:0f:fa:b0\Unity Hall 5th
+94:b4:0f:10:70:90\Harrington Auditorium
+94:b4:0f:0f:b1:61\Stoddard 304
+94:b4:0f:10:4d:b3\Harrington Auditorium
+94:b4:0f:27:34:e0\Goddard Hall
+ac:a3:1e:f3:83:f2\Founders Hall
+d0:d3:e0:ae:ce:c2\Unity Hall 5th
+80:8d:b7:76:c3:a1\Stoddard Hall
+94:b4:0f:27:34:d4\Higgins Labs
+20:a6:cd:00:42:d3\Innovation Studio
+20:a6:cd:00:5a:a1\Innovation Studio
+1c:28:af:0f:fa:a2\Unity Hall 5th
+94:b4:0f:0f:b2:94\Stoddard Hall
+20:a6:cd:00:48:42\Innovation Studio
+94:b4:0f:27:25:a2\Campus Center
+b0:b8:67:cc:dd:a1\Innovation Studio
+94:b4:0f:2e:46:f1\Unity Hall 5th
+20:a6:cd:10:09:70\Innovation Studio
+20:a6:cd:00:4b:03\Innovation Studio
+94:b4:0f:27:25:b3\Campus Center
+ac:a3:1e:f3:55:91\Founders Hall
+1c:28:af:0f:fc:e0\Unity Hall 5th
+94:b4:0f:10:6a:93\Harrington Auditorium
+90:4c:81:48:78:c0\Innovation Studio
+20:a6:cd:00:45:80\Innovation Studio
+ac:a3:1e:f3:80:70\Founders Hall
+20:a6:cd:00:61:c2\Innovation Studio
+94:b4:0f:28:ad:64\Higgins Labs
+94:b4:0f:28:b0:02\Olin Hall
+94:b4:0f:28:ac:14\Stoddard Hall
+20:a6:cd:00:47:01\Innovation Studio
+94:b4:0f:29:62:d0\CC Peterson Room
+ac:a3:1e:58:7d:c0\Higgins Labs
+ac:a3:1e:f3:58:20\Founders Hall
+94:b4:0f:0f:bc:12\Higgins Labs
+d8:84:66:7d:61:60\Logan Airport A21
+ac:a3:1e:f3:57:50\Founders Hall
+ac:a3:1e:58:4c:54\Atwater Kent
+94:b4:0f:10:79:b1\Harrington Auditorium
+94:b4:0f:0f:bf:80\Olin Hall
+20:a6:cd:00:61:c3\Innovation Studio
+94:b4:0f:27:39:d2\Campus Center
+94:b4:0f:0f:bc:52\Higgins Labs
+ac:a3:1e:f3:64:44\Founders Hall
+94:b4:0f:27:39:c1\Campus Center
+20:a6:cd:00:49:10\Innovation Studio
+1c:28:af:0f:e5:b3\Unity Hall 5th
+e8:ad:a6:51:75:b6\Founders Hall
+94:64:24:c1:87:80\CC Basement
+20:a6:cd:00:49:00\Innovation Studio
+94:b4:0f:0f:c0:80\Higgins Labs
+94:b4:0f:0f:c4:90\Olin Hall
+94:b4:0f:0f:bf:93\Olin Hall
+94:b4:0f:28:b1:a0\Higgins Labs
+20:a6:cd:00:5a:b1\Innovation Studio
+ac:a3:1e:5c:cc:a1\Atwater Kent
+ac:a3:1e:f3:55:80\Founders Hall
+94:b4:0f:0f:b1:73\Stoddard 304
+20:a6:cd:00:49:43\Innovation Studio
+20:a6:cd:00:4e:e3\Innovation Studio
+d0:d3:e0:a9:ed:43\Unity Hall 5th Campus Side
+20:a6:cd:10:09:60\Innovation Studio
+94:64:24:c1:9b:f0\Higgins Labs
+80:8d:b7:76:a5:32\Stoddard Hall
+20:a6:cd:00:55:e0\Innovation Studio
+94:b4:0f:10:75:f0\Harrington Auditorium
+1c:28:af:0a:5f:22\Unity Hall 5th
+20:a6:cd:00:42:c2\Innovation Studio
+b8:f8:53:c2:e0:18\Home
+20:a6:cd:00:4b:d2\Innovation Studio
+ac:a3:1e:f3:59:24\Founders Hall
+ac:a3:1e:d2:ca:a2\Founders Hall
+20:a6:cd:00:4a:f3\Innovation Studio
+20:a6:cd:00:4b:e3\Innovation Studio
+94:b4:0f:0f:b0:10\Founders/Unity
+20:a6:cd:00:46:c1\Innovation Studio
+94:64:24:c4:a0:f2\Campus Center
+94:b4:0f:27:2b:14\CC Basement
+04:a2:22:e8:3c:4b\Lake House
+ac:a3:1e:f3:55:83\Founders Hall
+94:b4:0f:28:b1:a2\Higgins Labs
+d0:d3:e0:aa:48:01\Unity Hall 5th
+94:b4:0f:0f:c4:80\Olin Hall
+ac:a3:1e:f3:5c:74\Founders Hall
+20:a6:cd:00:48:51\Innovation Studio
+94:b4:0f:0f:b0:11\Founders/Unity
+20:a6:cd:00:49:51\Innovation Studio
+94:b4:0f:27:34:f4\Goddard Hall
+94:b4:0f:0f:c0:84\Higgins Labs
+9c:1c:12:94:08:30\Founders Hall
+94:b4:0f:27:00:92\Goddard Hall
+94:b4:0f:28:b1:a4\Higgins Labs
+94:b4:0f:27:34:d0\Higgins Labs
+ac:a3:1e:5c:cc:a2\Atwater Kent
+20:a6:cd:00:45:81\Innovation Studio
+94:b4:0f:0f:a9:f4\Stoddard Hall
+20:a6:cd:10:09:61\Innovation Studio
+20:a6:cd:00:48:43\Innovation Studio
+94:b4:0f:26:fd:93\Atwater Kent
+20:a6:cd:00:3b:01\Innovation Studio
+1c:28:af:1f:7f:20\Unity Hall 5th
+1c:28:af:0f:3d:e2\Unity Hall 5th
+94:b4:0f:27:69:92\Goddard Hall
+94:b4:0f:0f:b2:03\Atwater Kent
+44:48:c1:94:d5:d2\Innovation Studio
+ac:a3:1e:58:4c:44\Atwater Kent
+20:a6:cd:00:49:42\Innovation Studio
+94:b4:0f:29:64:31\CC 2nd Floor
+94:b4:0f:27:01:a2\Goddard Hall
+d0:d3:e0:ae:ce:d1\Unity Hall 5th
+1c:28:af:1f:94:e3\Unity Hall 5th
+ac:a3:1e:f3:57:42\Founders Hall
+ac:a3:1e:f3:83:f0\Founders Hall
+ac:a3:1e:d2:d5:a1\Founders Hall
+94:64:24:c1:9b:f1\Higgins Labs
+94:b4:0f:27:39:c4\Campus Center
+b0:b8:67:cc:dd:b1\Innovation 203
+20:a6:cd:00:49:12\Innovation Studio
+94:b4:0f:0f:bc:f1\Higgins Labs
+94:b4:0f:27:2c:00\CC Basement
+d0:d3:e0:a4:eb:82\Unity Hall 500
+94:b4:0f:28:b1:b0\Higgins Labs
+c4:f1:74:c1:6e:26\1187 Washington St, San Francisco
+94:b4:0f:0f:ba:f0\Higgins Labs
+94:b4:0f:0f:b4:00\Stoddard Hall
+20:a6:cd:00:43:41\Innovation Studio
+20:a6:cd:00:50:e2\Innovation Studio
+d8:84:66:7d:61:64\Logan Airport A21
+1c:28:af:0f:f9:11\Unity Hall 5th
+1c:b7:2c:76:29:e0\Innovation Studio
+94:b4:0f:28:b1:b4\Higgins Labs
+d8:84:66:7d:5d:42\Logan Airport A20
+94:b4:0f:0f:c2:93\Higgins Labs
+d8:84:66:7d:61:6a\Logan Airport A21
+20:a6:cd:00:4c:62\Innovation Studio
+d0:d3:e0:a9:ed:50\Unity Hall 5th Campus Side
+20:a6:cd:10:09:72\Innovation Studio
+94:b4:0f:27:76:d0\Atwater Kent (Near)
+94:64:24:c3:d6:21\CC Basement
+94:b4:0f:0f:c0:62\CC Basement
+1c:3b:f3:47:b3:db\5 Metcalf Rd
+94:b4:0f:10:6a:83\Harrington Auditorium
+20:a6:cd:00:4b:02\Innovation Studio
+d0:d3:e0:a9:ed:40\Unity Hall 5th Campus Side
+94:b4:0f:0f:b6:e0\Higgins 154
+ac:a3:1e:58:48:e0\Atwater Kent 116
+1c:28:af:0f:fc:f3\Unity Hall 5th
+1c:28:af:1f:7f:23\Unity Hall 5th
+d0:d3:e0:a9:ed:41\Unity Hall 5th Campus Side
+20:a6:cd:00:4c:61\Innovation Studio
+ac:a3:1e:58:4c:42\Atwater Kent
+94:64:24:c1:69:b2\Campus Center
+1c:28:af:0f:f9:12\Unity Hall 5th
+20:a6:cd:00:49:52\Innovation Studio
+ac:a3:1e:f3:54:60\Founders Hall
+94:b4:0f:29:64:20\CC 2nd Floor
+ac:a3:1e:f3:57:54\Founders Hall
+d4:b9:2f:a7:15:bf\6 Metcalf Rd
+ac:a3:1e:f3:72:f1\Founders Hall 108
+20:a6:cd:00:41:a3\Innovation Studio
+ac:a3:1e:58:48:f1\Atwater Kent 116
+94:b4:0f:0f:b2:80\Stoddard Hall
+94:64:24:c1:13:f0\CC Couch Room
+94:b4:0f:0f:b3:32\Stoddard Hall
+1c:28:af:0f:e5:b0\Unity Hall 5th
+94:b4:0f:10:65:d1\Harrington Auditorium
+ac:a3:1e:f3:62:00\Founders Hall
+94:b4:0f:27:05:a4\Goddard Hall 110
+94:64:24:c0:d2:02\Campus Center
+94:b4:0f:0f:c2:80\Higgins Labs
+1c:28:af:1f:7f:33\Unity Hall 5th
+1c:28:af:1f:7f:32\Unity Hall 5th
+94:b4:0f:28:b1:d0\Higgins Labs
+ac:a3:1e:f3:80:73\Founders Hall
+ac:a3:1e:f3:58:22\Founders Hall
+1c:28:af:1f:8e:43\Unity Hall 5th
+ac:a3:1e:f3:5c:72\Founders Hall
+94:b4:0f:0f:ba:b1\CC 2nd Floor
+94:b4:0f:27:00:90\Goddard Hall
+20:a6:cd:00:41:b2\Innovation Studio
+94:b4:0f:0f:b3:30\Stoddard Hall
+d0:d3:e0:aa:48:00\Unity Hall 5th
+20:a6:cd:10:09:62\Innovation Studio
+ac:a3:1e:58:7b:74\Olin Hall 107 Left Side
+94:b4:0f:0f:bc:02\Higgins Labs
+ac:a3:1e:f3:73:72\Founders Hall
+94:b4:0f:10:70:91\Harrington Auditorium
+94:b4:0f:27:34:c0\Higgins Labs
+ac:a3:1e:f3:73:64\Founders Hall
+94:b4:0f:0f:b3:22\Stoddard Hall
+94:b4:0f:27:69:80\Goddard Hall
+1c:28:af:1f:a1:10\Unity Hall 5th
+94:64:24:c1:87:82\CC Basement
+94:b4:0f:27:01:a0\Goddard Hall
+20:a6:cd:00:4a:11\Innovation 2nd Floor
+94:b4:0f:10:27:a2\Harrington Auditorium
+b8:f8:53:c2:e0:16\Home
+20:a6:cd:00:3b:03\Innovation Studio
+20:a6:cd:00:46:d3\Innovation Studio
+20:a6:cd:00:4b:d3\Innovation Studio
+1c:28:af:0f:fc:e1\Unity Hall 5th
+94:b4:0f:27:05:b4\Goddard Hall 110
+ac:a3:1e:f3:66:02\Founders Hall
+20:a6:cd:00:42:c1\Innovation Studio
+d8:84:66:7d:61:62\Logan Airport A21
+20:a6:cd:00:4e:b3\Innovation Studio
+d0:d3:e0:a4:95:32\Unity Hall 500
+1c:28:af:1f:8e:51\Unity Hall 5th
+94:b4:0f:0f:bb:b0\Higgins Labs
+ac:a3:1e:f2:eb:a0\Founders Hall
+48:2f:6b:00:fc:e1\East Hall 414
+94:b4:0f:27:69:82\Goddard Hall
+20:a6:cd:00:4c:73\Innovation Studio
+94:b4:0f:28:b0:00\Olin Hall
+ac:a3:1e:58:8a:21\Olin Hall 107 Right Side
+ac:a3:1e:d2:d9:e0\Founders Hall
+48:2f:6b:00:fc:f0\East Hall 414
+dc:3a:5e:16:8c:1f\Upstairs Home Roku
+20:a6:cd:00:55:e1\Innovation Studio
+44:48:c1:94:d5:c1\Innovation Studio
+94:b4:0f:28:b1:d2\Higgins Labs
+1c:28:af:1f:94:f2\Unity Hall 5th
+80:8d:b7:05:a3:00\Innovation Studio
+94:b4:0f:28:ac:74\Stoddard Hall
+94:b4:0f:0f:b6:e1\Higgins 154
+1c:28:af:1f:7f:30\Unity Hall 5th
+80:8d:b7:05:a3:10\Innovation Studio
+94:b4:0f:10:6a:90\Harrington Auditorium
+20:a6:cd:00:4a:13\Innovation 2nd Floor
+20:a6:cd:00:4b:92\Innovation Studio
+ac:a3:1e:5c:cf:80\Atwater Kent
+94:b4:0f:27:66:f3\Goddard Hall
+94:b4:0f:26:fd:80\Atwater Kent
+f8:e4:fb:67:70:57\12009 Smoketree Road
+44:48:c1:94:d5:d0\Innovation Studio
+94:b4:0f:27:66:e1\Goddard Hall
+20:a6:cd:00:44:e3\Innovation Studio
+20:a6:cd:00:47:11\Innovation Studio
+20:a6:cd:00:4a:e1\Innovation Studio
+94:64:24:c4:b9:82\CC Basement
+1c:28:af:0f:fa:b3\Unity Hall 5th
+94:64:24:c3:d6:22\CC Basement
+44:48:c1:94:d5:c0\Innovation Studio
+5c:f3:70:b5:fe:9c\Unity 500 Projector
+94:b4:0f:0f:aa:74\Higgins Labs
+94:b4:0f:27:2c:11\CC Basement
+ac:a3:1e:f3:80:71\Founders Hall
+94:b4:0f:0f:bc:40\Higgins Labs
+b0:b8:67:cc:dd:b0\Innovation 203
+20:a6:cd:00:50:91\Innovation Studio
+d8:84:66:7d:61:8a\Logan Airport A22
+94:b4:0f:0f:b7:32\Founders/Unity
+ac:a3:1e:f3:66:74\Founders Hall
+20:a6:cd:00:42:73\Innovation 2nd Floor
+20:a6:cd:00:61:d3\Innovation Studio
+1c:28:af:1f:c2:d1\Unity Hall 5th
+ac:a3:1e:58:7b:72\Olin Hall 107 Left Side
+ac:a3:1e:5c:cf:92\Atwater Kent
+ac:a3:1e:58:4c:40\Atwater Kent
+94:b4:0f:27:34:d2\Higgins Labs
+94:b4:0f:0f:b0:b4\Stoddard Hall
+ac:a3:1e:f3:72:e3\Founders Hall 108
+94:b4:0f:0f:bc:42\Higgins Labs
+1c:28:af:0f:3d:e0\Unity Hall 5th
+1c:28:af:0d:a8:b1\Unity Hall 5th
+94:64:24:c1:87:a0\CC Basement
+94:b4:0f:0f:c4:94\Olin Hall
+d0:d3:e0:a4:eb:81\Unity Hall 500
+1c:28:af:0f:f9:03\Unity Hall 5th
+1c:3b:f3:47:b3:da\5 Metcalf Rd
+ac:a3:1e:f3:53:00\Founders Hall
+94:b4:0f:0f:ba:b0\CC 2nd Floor
+94:b4:0f:0f:bc:83\Higgins Labs
+94:b4:0f:0f:b0:b2\Stoddard Hall
+20:a6:cd:00:5c:61\Innovation Studio
+94:b4:0f:0f:a9:e4\Higgins Labs
+94:b4:0f:27:00:80\Goddard Hall
+1c:28:af:1f:7f:22\Unity Hall 5th
+94:b4:0f:0f:bc:10\Higgins Labs
+94:b4:0f:29:64:30\CC 2nd Floor
+94:b4:0f:29:62:c0\CC Peterson Room
+20:a6:cd:00:44:e1\Innovation Studio
+48:2f:6b:fb:78:a0\Fuller Apartments 12
+ac:a3:1e:f3:55:90\Founders Hall
+20:a6:cd:00:4b:12\Innovation Studio
+1c:28:af:0d:a8:a0\Unity Hall 5th
+14:91:82:2d:e0:2b\Unknown Founders
+94:b4:0f:0f:b7:33\Founders/Unity
+48:2f:6b:fb:78:a1\Fuller Apartments 12
+94:b4:0f:2e:46:f0\Unity Hall 5th
+94:b4:0f:27:01:a4\Goddard Hall
+94:b4:0f:0f:b4:a3\Higgins Labs
+94:b4:0f:0f:bf:90\Olin Hall
+20:a6:cd:00:48:52\Innovation Studio
+ac:a3:1e:f3:62:02\Founders Hall
+94:b4:0f:10:27:a4\Harrington Auditorium
+20:a6:cd:00:43:42\Innovation Studio
+20:a6:cd:00:42:c3\Innovation Studio
+94:64:24:c1:4e:e2\Higgins Labs
+20:a6:cd:00:44:f2\Innovation Studio
+ac:a3:1e:f3:67:d2\Founders Hall
+94:64:24:c4:a0:d0\Campus Center
+ac:a3:1e:f3:64:40\Founders Hall
+20:a6:cd:00:4e:e2\Innovation Studio
+d8:84:66:7d:61:88\Logan Airport A22
+94:b4:0f:29:64:32\CC 2nd Floor
+94:b4:0f:28:b1:40\Higgins Labs
+20:a6:cd:00:61:c1\Innovation Studio
+ac:a3:1e:5c:cc:a4\Atwater Kent
+94:b4:0f:27:39:c0\Campus Center
+1c:28:af:0f:f9:02\Unity Hall 5th
+20:a6:cd:00:4b:f3\Innovation Studio
+94:b4:0f:0f:c4:82\Olin Hall
+ac:a3:1e:58:ae:c0\Atwater Kent
+d8:84:66:7d:5d:48\Logan Airport A20
+94:b4:0f:27:66:f1\Goddard Hall
+20:a6:cd:00:42:63\Innovation 2nd Floor
+94:b4:0f:0f:b1:63\Stoddard 304
+20:a6:cd:00:4a:03\Innovation 2nd Floor
+94:64:24:c4:b9:60\CC Basement
+ac:a3:1e:f2:eb:a3\Founders Hall
+94:b4:0f:27:39:d1\Campus Center
+ea:cb:bc:4a:c9:1d\CC Dunkin Donuts
+20:a6:cd:00:49:53\Innovation Studio
+20:a6:cd:00:61:e3\Innovation Studio
+94:b4:0f:0f:c5:24\Higgins Labs
+94:b4:0f:0f:bc:00\Higgins Labs
+94:64:24:c1:ae:d1\Campus Center
+ac:a3:1e:5c:cf:90\Atwater Kent
+d0:d3:e0:aa:48:12\Unity Hall 5th
+d0:d3:e0:aa:48:11\Unity Hall 5th
+b0:b8:67:cc:dd:a0\Innovation 203
+94:64:24:c4:a0:f0\Campus Center
+ac:a3:1e:f3:72:e0\Founders Hall 108
+94:b4:0f:27:05:a0\Goddard Hall 110
+20:a6:cd:00:41:a2\Innovation Studio
+20:a6:cd:00:4b:82\Innovation Studio
+94:b4:0f:28:b0:04\Olin Hall
+20:a6:cd:00:50:92\Innovation Studio
+94:b4:0f:10:65:d0\Harrington Auditorium
+ac:a3:1e:d2:d7:23\Founders Hall
+20:a6:cd:00:5a:b2\Innovation Studio
+94:b4:0f:0f:b7:20\Founders Hall
+20:a6:cd:00:44:f1\Innovation Studio
+94:64:24:c0:d2:22\Campus Center
+1c:28:af:09:ee:b1\Unity Hall 5th
+94:64:24:c4:a0:d1\Campus Center
+94:b4:0f:0f:b9:20\Higgins Labs
+94:b4:0f:0f:b0:b0\Stoddard/Higgins
+94:b4:0f:0f:b4:b3\Stoddard/Higgins
+94:64:24:c4:a0:d2\Campus Center
+94:b4:0f:27:25:b0\Campus Center
+94:b4:0f:0f:b5:04\Higgins Labs
+94:b4:0f:0f:aa:62\Higgins Labs
+80:8d:b7:76:a5:22\Stoddard Hall
+20:a6:cd:10:09:71\Innovation Studio
+ac:a3:1e:d2:d5:a2\Founders Hall
+d8:84:66:7d:61:80\Logan Airport A22
+1c:28:af:0a:5f:33\Unity Hall 500
+1c:28:af:0d:a8:b2\Unity Hall 5th
+d8:84:66:7d:61:68\Logan Airport A21
+c4:f1:74:c0:8a:88\1187 Washington St, San Francisco
+20:a6:cd:00:5a:a3\Innovation Studio
+20:a6:cd:00:50:f1\Innovation Studio
+94:b4:0f:0f:bc:54\Higgins Labs
+94:b4:0f:0f:b9:22\Higgins Labs
+ac:a3:1e:f3:59:22\Founders Hall
+94:b4:0f:27:2c:03\CC Basement
+d0:d3:e0:a4:95:21\Unity Hall 500
+94:b4:0f:0f:b7:23\Founders Hall
+ac:a3:1e:f3:3e:22\Founders Hall
+20:a6:cd:00:45:82\Innovation Studio
+94:64:24:c1:4e:e1\Higgins Labs
+9a:9d:5d:d6:36:f7\90 Canton St
+ac:a3:1e:f3:62:04\Founders Hall
+d0:d3:e0:a4:eb:90\Unity Hall 500
+ac:a3:1e:f3:66:64\Founders Hall
+ac:a3:1e:f2:eb:b0\Founders Hall
+94:b4:0f:0f:c0:60\Campus Center
+1c:28:af:0f:3d:f1\Unity Hall 5th
+20:a6:cd:00:4b:c3\Innovation Studio
+20:a6:cd:00:47:00\Innovation Studio
+94:b4:0f:0f:c2:81\Higgins Labs
+04:a2:22:e8:3c:4c\Lake House
+94:b4:0f:28:ac:72\Stoddard Hall
+1c:28:af:0f:f9:13\Unity Hall 5th
+94:b4:0f:0f:ba:a3\CC 2nd Floor
+94:b4:0f:27:69:90\Goddard Hall
+48:2f:6b:fb:78:b0\Fuller Apartments 12
+20:a6:cd:00:46:c2\Innovation Studio
+94:b4:0f:28:b1:41\Higgins Labs
+ac:a3:1e:f3:83:e0\Founders Hall
+94:b4:0f:10:70:93\Harrington Auditorium
+20:a6:cd:00:5a:b3\Innovation Studio
+ac:a3:1e:d2:d9:e2\Founders Hall
+d0:d3:e0:a9:ed:53\Unity Hall 5th Campus Side
+94:b4:0f:27:39:d0\Campus Center
+94:b4:0f:27:3a:14\CC Couch Room
+94:b4:0f:0f:ba:a0\CC 2nd Floor
+94:b4:0f:10:6a:80\Harrington Auditorium
+20:a6:cd:00:4a:b1\Innovation Studio
+ac:a3:1e:f3:55:93\Founders Hall
+ac:a3:1e:f2:eb:a1\Founders Hall
+20:a6:cd:00:4a:42\Innovation Studio
+94:b4:0f:0f:b4:02\Stoddard Hall
+94:b4:0f:0f:c2:91\Higgins Labs
+94:b4:0f:0f:c0:70\CC Basement
+ac:a3:1e:f3:73:70\Founders Hall
+94:64:24:c1:13:f1\CC Couch Room
+d0:d3:e0:a4:eb:80\Unity Hall 500
+94:64:24:c0:d2:00\Campus Center
+20:a6:cd:00:4a:f1\Innovation Studio
+18:64:72:5d:e4:00\CC Basement
+94:b4:0f:27:2c:13\CC Basement
+ac:a3:1e:f3:5c:60\Founders Hall
+20:a6:cd:00:50:81\Innovation Studio
+ac:a3:1e:58:ae:c1\Atwater Kent
+94:b4:0f:0f:b9:24\Higgins Labs
+20:a6:cd:00:4a:51\Innovation Studio
+20:a6:cd:00:4b:13\Innovation Studio
+94:b4:0f:0f:b9:94\Higgins Labs
+ac:a3:1e:5c:cc:b1\Atwater Kent
+d0:d3:e0:ae:ce:d0\Unity Hall 5th
+94:b4:0f:0f:c4:84\Olin Hall
+94:b4:0f:27:34:e2\Goddard Hall
+20:a6:cd:00:50:e1\Innovation Studio
+94:b4:0f:0f:b1:91\Higgins Labs
+20:a6:cd:00:43:53\Innovation Studio
+94:b4:0f:0f:c2:83\Higgins Labs
+94:b4:0f:0f:b2:01\Atwater Kent
+80:8d:b7:76:a5:30\Stoddard Hall
+d8:84:66:7d:5d:44\Logan Airport A20
+b0:b8:67:cc:dd:b2\Innovation Studio
+ac:a3:1e:f3:58:24\Founders Hall
+ac:a3:1e:58:7b:62\Olin Hall 107 Left Side
+94:b4:0f:0f:ba:54\Higgins Labs
+94:b4:0f:0f:b2:12\Atwater Kent
+44:48:c1:94:d5:d1\Innovation Studio
+94:b4:0f:27:36:32\Goddard Hall
+94:b4:0f:10:4d:b1\Harrington Auditorium
+20:a6:cd:00:50:e3\Innovation Studio
+ac:a3:1e:f2:eb:b3\Founders Hall
+94:b4:0f:27:34:f2\Goddard Hall
+bc:82:5d:53:b2:6e\Dad's Car
+94:64:24:c4:a0:f1\Campus Center
+1c:28:af:09:ee:b3\Unity Hall 5th
+ac:a3:1e:58:8a:23\Olin Hall 107 Right Side
+ac:a3:1e:f3:59:20\Founders Hall
+94:64:24:c0:d2:21\Campus Center
+94:64:24:c1:87:a1\CC Basement
+94:b4:0f:2b:a7:c1\Higgins Labs
+ac:a3:1e:f3:59:32\Founders Hall
+94:b4:0f:0f:c2:90\Higgins Labs
+94:b4:0f:0f:bc:e3\Higgins Labs
+d8:84:66:7d:61:6c\Logan Airport A21
+20:a6:cd:00:50:82\Innovation Studio
+94:b4:0f:10:79:b0\Harrington Auditorium
+ac:a3:1e:d2:d9:24\Founders Hall
+94:b4:0f:0f:ba:f2\Higgins Labs
+80:8d:b7:05:a3:01\Innovation Studio
+94:b4:0f:27:25:b2\Campus Center
+ac:a3:1e:58:48:e2\Atwater Kent 116
+1c:28:af:0d:a8:b0\Unity Hall 5th
+94:b4:0f:26:fd:83\Atwater Kent
+94:b4:0f:0f:aa:70\Higgins Labs
+48:2f:6b:00:fc:f1\East Hall 414
+20:a6:cd:00:3b:12\Innovation Studio
+94:b4:0f:0f:b6:f1\Higgins 154
+20:a6:cd:00:55:f2\Innovation Studio
+94:b4:0f:10:79:a3\Harrington Auditorium
+ac:a3:1e:f3:7c:24\Founders Hall
+1c:28:af:1f:c2:d3\Unity Hall 5th
+94:b4:0f:0f:aa:64\Higgins Labs
+94:b4:0f:27:3a:02\CC Couch Room
+94:b4:0f:0f:bc:80\Higgins Labs
+d0:d3:e0:a4:eb:91\Unity Hall 500
+94:b4:0f:29:63:04\CC 2nd Floor
+20:a6:cd:00:4a:02\Innovation 2nd Floor
+1c:28:af:1f:7f:31\Unity Hall 5th
+94:b4:0f:0f:bc:90\Higgins Labs
+94:b4:0f:10:4d:a0\Harrington Auditorium
+98:9d:5d:ce:36:f5\1 Metcalf Rd
+20:a6:cd:00:50:83\Innovation Studio
+d0:d3:e0:a4:eb:93\Unity Hall 500
+ac:a3:1e:58:4c:50\Atwater Kent
+d0:d3:e0:aa:48:13\Unity Hall 5th
+80:8d:b7:76:c3:a2\Stoddard Hall
+94:b4:0f:0f:b4:b0\Stoddard/Higgins
+1c:28:af:0f:e5:a0\Unity Hall 5th
+ac:a3:1e:5c:cf:81\Atwater Kent
+18:64:72:5d:e4:01\CC Basement
+94:b4:0f:29:62:d3\CC Peterson Room
+94:b4:0f:27:2b:10\CC Basement
+94:b4:0f:0f:bc:14\Higgins Labs
+d8:84:66:7d:61:65\Logan Airport A21
+94:64:24:c1:ae:b0\Campus Center
+94:b4:0f:29:62:d1\CC 2nd Floor
+9a:9d:5d:d6:36:f1\90 Canton St
+94:b4:0f:29:63:12\CC 2nd Floor
+d0:d3:e0:a4:95:31\Unity Hall 500
+ac:a3:1e:f3:5c:62\Founders Hall
+94:b4:0f:0f:b2:92\Stoddard Hall
+94:b4:0f:27:76:d4\Atwater Kent (Near)
+94:b4:0f:0f:b7:21\Founders Hall
+ac:a3:1e:d2:d9:20\Founders Hall
+ac:a3:1e:f3:84:34\Founders Hall
+94:b4:0f:0f:b1:93\Higgins Labs
+94:b4:0f:0f:ba:52\Higgins Labs
+20:a6:cd:00:5c:43\Innovation Studio
+1c:28:af:1f:c2:d2\Unity Hall 5th
+94:b4:0f:27:05:a1\Goddard Hall 110
+94:b4:0f:0f:c5:22\Higgins Labs
+1c:28:af:0f:fa:b2\Unity Hall 5th
+ac:a3:1e:d2:d5:a0\Founders Hall
+94:b4:0f:0f:b2:02\Atwater Kent
+ac:a3:1e:58:7b:64\Olin Hall 107 Left Side
+20:a6:cd:00:58:e3\Innovation Studio
+94:b4:0f:0f:b4:a0\Higgins Labs
+94:a6:7e:dc:fa:ab\36 Institute Road
+20:a6:cd:00:5c:63\Innovation Studio
+94:64:24:c3:d6:42\CC Basement
+ac:a3:1e:f3:80:63\Founders Hall
+ac:a3:1e:58:ae:d4\Atwater Kent
+20:a6:cd:00:4e:a1\Innovation Studio
+20:a6:cd:00:4b:83\Innovation Studio
+20:a6:cd:00:4e:e1\Innovation Studio
+94:64:24:c1:ae:b1\Campus Center
+94:b4:0f:0f:b2:82\Stoddard Hall
+94:b4:0f:27:25:b1\Campus Center
+ac:a3:1e:58:7b:70\Olin Hall 107
+ac:a3:1e:f3:84:20\Founders Hall
+ac:a3:1e:5c:cf:94\Atwater Kent
+94:b4:0f:0f:b1:70\Stoddard 304
+20:a6:cd:00:4e:b1\Innovation Studio
+90:4c:81:48:78:d0\Innovation Studio
+1c:28:af:0a:5f:21\Unity Hall 5th
+1c:28:af:1f:8e:42\Unity Hall 5th
+94:b4:0f:0f:b0:a2\Higgins Labs
+94:b4:0f:0f:bc:e1\Higgins Labs
+94:b4:0f:27:3a:04\CC Couch Room
+ac:a3:1e:f2:eb:b1\Founders Hall
+94:64:24:c1:69:b1\Campus Center
+ac:a3:1e:58:48:e4\Atwater Kent 116
+94:b4:0f:28:ac:10\Stoddard Hall
+94:b4:0f:0f:b2:10\Atwater Kent
+1c:28:af:1f:8e:41\Unity Hall 5th
+1c:28:af:0f:fc:f1\Unity Hall 5th
+90:72:40:23:d1:7e\8 Metcalf Rd
+94:b4:0f:0f:ba:b3\CC 2nd Floor
+20:a6:cd:00:5a:a2\Innovation Studio
+94:b4:0f:0f:b9:90\Higgins Labs
+94:b4:0f:28:ac:12\Stoddard Hall
+ac:a3:1e:58:ae:d1\Atwater Kent
+44:48:c1:94:d5:c2\Innovation Studio
+20:a6:cd:00:4b:81\Innovation Studio
+ac:a3:1e:58:48:f0\Atwater Kent 116
+94:b4:0f:0f:bf:91\Olin Hall
+48:2f:6b:00:fc:e2\East Hall 414
+94:64:24:c4:b9:80\CC Basement
+94:b4:0f:29:62:c3\CC Peterson Room
+20:a6:cd:00:55:e2\Innovation Studio
+20:a6:cd:00:46:d2\Innovation Studio
+20:a6:cd:00:4e:a2\Innovation Studio
+ac:a3:1e:58:7d:31\Olin Hall 107 Middle
+48:2f:6b:fb:78:b2\Fuller Apartments 12
+94:b4:0f:29:64:21\CC 2nd Floor
+ac:a3:1e:f3:5c:64\Founders Hall
+94:b4:0f:0f:bc:f0\Higgins Labs
+94:b4:0f:0f:c5:20\Higgins Labs
+ac:a3:1e:f3:80:61\Founders Hall
+94:b4:0f:27:76:d2\Atwater Kent (Near)
+94:b4:0f:10:27:b2\Harrington Auditorium
+1c:28:af:0d:a8:a3\Unity Hall 5th
+1c:28:af:0a:5f:30\Unity Hall 500
+1c:28:af:0f:e5:b1\Unity Hall 5th
+48:2f:6b:fb:78:b1\Fuller Apartments 12
+ac:a3:1e:f3:57:52\Founders Hall
+94:b4:0f:0f:b2:00\Atwater Kent
+94:b4:0f:0f:b3:34\Stoddard Hall
+94:b4:0f:0f:c0:61\Campus Center
+94:64:24:c4:b9:61\CC Basement
+20:a6:cd:00:50:f2\Innovation Studio
+94:64:24:c1:ae:d0\Campus Center
+ac:a3:1e:58:7d:20\Olin Hall 107 Left Side
+ac:a3:1e:f3:67:d4\Founders Hall
+ac:a3:1e:f3:59:30\Founders Hall
+94:64:24:c3:d6:20\CC Basement
+d8:84:66:7d:61:82\Logan Airport A22
+94:b4:0f:0f:b4:12\Stoddard Hall
+94:64:24:c1:4e:e0\Higgins Labs
+94:b4:0f:0f:ba:f4\Higgins Labs
+20:a6:cd:00:43:51\Innovation Studio
+94:b4:0f:27:2c:10\CC Basement
+94:b4:0f:26:fd:82\Atwater Kent
+94:b4:0f:27:34:c4\Higgins Labs
+94:b4:0f:29:63:14\CC 2nd Floor
+94:64:24:c1:69:d1\Campus Center
+94:b4:0f:28:b1:b2\Higgins Labs
+1c:28:af:1f:a1:13\Unity Hall 5th
+ac:a3:1e:f3:72:e1\Founders Hall 108
+20:a6:cd:00:4e:a3\Innovation Studio
+d0:d3:e0:a4:95:30\Unity Hall 500
+94:b4:0f:27:76:d1\Atwater Kent (Near)
+94:b4:0f:27:01:b0\Goddard Hall
+94:b4:0f:0f:b9:92\Higgins Labs
+ac:a3:1e:f3:80:60\Founders Hall
+ac:a3:1e:58:ae:c2\Atwater Kent
+94:b4:0f:0f:bf:83\Olin Hall 107
+94:b4:0f:27:25:a0\Campus Center
+20:a6:cd:00:48:53\Innovation Studio
+d8:07:b6:ef:dc:80\Founders Hall
+20:a6:cd:00:42:d1\Innovation Studio
+d8:84:66:7d:5d:40\Logan Airport A20
+20:a6:cd:00:4b:01\Innovation Studio
+94:b4:0f:27:0e:82\Stoddard Hall
+94:b4:0f:26:fd:92\Atwater Kent
+ac:a3:1e:f3:5c:70\Founders Hall
+94:b4:0f:0f:bb:a3\Higgins Labs
+94:b4:0f:2b:a7:c0\Higgins Labs
+94:b4:0f:29:63:02\CC 2nd Floor
+d0:d3:e0:b1:08:62\Unity Hall 5th
+18:64:72:5d:e4:02\CC Basement
+1c:28:af:0a:5f:31\Unity Hall 500
+1c:28:af:0f:e5:b2\Unity Hall 5th
+94:b4:0f:27:25:a1\Campus Center
+94:b4:0f:0f:b1:60\Stoddard 304
+ac:a3:1e:f3:72:f3\Founders Hall 108
+94:b4:0f:27:02:a3\Goddard Hall
+94:b4:0f:0f:b9:30\Higgins Labs
+ac:a3:1e:58:4c:51\Atwater Kent
+d0:d3:e0:aa:48:03\Unity Hall 5th
+20:a6:cd:00:45:90\Innovation Studio
+ac:a3:1e:f3:53:02\Founders Hall
+1c:28:af:1f:94:f1\Unity Hall 5th
+94:b4:0f:0f:c0:71\CC Basement
+94:b4:0f:0f:bc:50\Higgins Labs
+20:a6:cd:00:4b:93\Innovation Studio
+94:b4:0f:0f:b9:34\Higgins Labs
+20:a6:cd:00:4c:63\Innovation Studio
+94:b4:0f:27:01:b4\Goddard Hall
+94:b4:0f:28:b1:43\Higgins Labs
+d0:d3:e0:a4:95:22\Unity Hall 500
+94:b4:0f:0f:bc:04\Higgins Labs
+94:b4:0f:0f:a9:f2\Stoddard Hall
+1c:28:af:0d:a8:a1\Unity Hall 5th
+94:64:24:c1:13:d0\CC Couch Room
+94:b4:0f:0f:b0:a4\Higgins Labs
+18:64:72:5d:e4:12\CC Basement
+94:b4:0f:0f:b1:80\Higgins Labs
+ac:a3:1e:58:8a:30\Olin Hall 107 Right Side
+94:b4:0f:0f:bb:b1\Higgins Labs
+94:64:24:c1:69:d2\Campus Center
+d0:d3:e0:a4:eb:83\Unity Hall 500
+d0:d3:e0:a4:95:23\Unity Hall 500
+ac:a3:1e:58:7d:c4\Higgins Labs
+80:8d:b7:05:a3:12\Innovation Studio
+20:a6:cd:00:50:93\Innovation Studio
+94:64:24:c1:13:d1\CC Couch Room
+ac:a3:1e:d2:ca:a4\Founders Hall
+48:5d:36:2e:e8:1c\4 Metcalf Rd
+20:a6:cd:00:49:41\Innovation Studio
+94:b4:0f:29:64:22\CC Peterson Room
+1c:28:af:0f:fa:a0\Unity Hall 5th
+ac:a3:1e:f3:67:c4\Founders Hall
+20:a6:cd:00:3b:11\Innovation Studio
+ac:a3:1e:f3:57:44\Founders Hall
+94:64:24:c1:4f:00\Higgins Labs 
+94:64:24:c1:4f:02\Higgins Labs 
+94:64:24:c1:4f:01\Higgins Labs 
+94:64:24:c2:1a:82\Higgins Labs
+94:64:24:c2:1a:81\Higgins Labs
+94:64:24:c2:1a:80\Higgins Labs
+94:64:24:c2:1a:a1\Higgins Labs
+94:64:24:c2:1a:a2\Higgins Labs
+94:64:24:c2:1a:a0\Higgins Labs
+ac:a3:1e:58:74:a4\Higgins 116 B
+ac:a3:1e:58:74:a2\Higgins 116 B
+ac:a3:1e:58:74:a0\Higgins 116 B
+ac:a3:1e:58:74:b4\Higgins 116 B
+ac:a3:1e:58:74:b2\Higgins 116 B
+ac:a3:1e:58:74:b0\Higgins 116 B
+94:64:24:c0:f8:91\Higgins 218 BR
+94:64:24:c0:f8:92\Higgins 218 BR
+94:64:24:c0:f8:90\Higgins 218 BR
+94:64:24:c0:f8:70\Higgins 218 BR
+94:64:24:c0:f8:71\Higgins 218 BR
+94:64:24:c0:f8:72\Higgins 218 BR
+94:64:24:c5:29:e0\Higgins 218 BL
+94:64:24:c5:29:e1\Higgins 218 BL
+94:64:24:c5:29:e2\Higgins 218 BL
+94:64:24:c5:2a:01\Higgins 218 BL
+94:64:24:c5:2a:00\Higgins 218 BL
+94:64:24:c5:2a:02\Higgins 218 BL
+94:64:24:c3:ab:c1\Higgins 218 F
+94:64:24:c3:ab:c2\Higgins 218 F
+94:64:24:c3:ab:c0\Higgins 218 F
+94:64:24:c3:ab:e2\Higgins 218 F
+94:64:24:c3:ab:e1\Higgins 218 F
+94:64:24:c3:ab:e0\Higgins 218 F
+94:b4:0f:2b:a3:c0\CC/Higgins
+94:b4:0f:2b:a3:c1\CC/Higgins
+94:b4:0f:2b:a3:c2\CC/Higgins
+94:b4:0f:2b:a3:d2\CC/Higgins
+94:b4:0f:2b:a3:d0\CC/Higgins
+94:b4:0f:2b:a3:d1\CC/Higgins
+18:64:72:37:ae:12\Alden B30
+18:64:72:37:ae:10\Alden B30
+18:64:72:37:ae:14\Alden B30
+18:64:72:37:ae:04\Alden B30
+18:64:72:37:ae:02\Alden B30
+18:64:72:37:ae:00\Alden B30
+ac:a3:1e:58:74:84\Higgins 116 FL
+ac:a3:1e:58:74:82\Higgins 116 FL
+ac:a3:1e:58:74:80\Higgins 116 FL
+ac:a3:1e:58:74:92\Higgins 116 FL
+ac:a3:1e:58:74:90\Higgins 116 FL
+ac:a3:1e:58:74:94\Higgins 116 FL
+ac:a3:1e:58:87:d1\Higgins 116 FR
+ac:a3:1e:58:87:d2\Higgins 116 FR
+ac:a3:1e:58:87:d0\Higgins 116 FR
+ac:a3:1e:58:87:c2\Higgins 116 FR
+ac:a3:1e:58:87:c1\Higgins 116 FR
+ac:a3:1e:58:87:c0\Higgins 116 FR
+94:64:24:c4:54:21\Unity Hall 5th CSL
+94:64:24:c4:54:20\Unity Hall 5th CSL
+94:64:24:c4:54:22\Unity Hall 5th CSL
+94:64:24:c4:54:42\Unity Hall 5th CSL
+94:64:24:c4:54:41\Unity Hall 5th CSL
+94:64:24:c4:54:40\Unity Hall 5th CSL
+94:64:24:c5:80:82\Unity Hall 5th
+94:64:24:c5:80:81\Unity Hall 5th
+94:64:24:c5:80:80\Unity Hall 5th
+94:64:24:c5:80:a2\Unity Hall 5th
+94:64:24:c5:80:a1\Unity Hall 5th
+94:64:24:c5:80:a0\Unity Hall 5th
+94:64:24:c3:ac:70\Unity Hall 5th
+94:64:24:c3:ac:71\Unity Hall 5th
+94:64:24:c3:ac:72\Unity Hall 5th
+94:64:24:c3:ac:51\Unity Hall 5th
+94:64:24:c3:ac:50\Unity Hall 5th
+94:64:24:c3:ac:52\Unity Hall 5th
+94:64:24:b9:cb:22\Library
+94:64:24:b9:cb:21\Library
+94:64:24:b9:cb:20\Library
+94:64:24:b9:cb:40\Library
+94:64:24:b9:cb:41\Library
+94:64:24:b9:cb:42\Library
+94:64:24:b9:cd:00\Library
+94:64:24:b9:cd:01\Library
+94:64:24:b9:cd:02\Library
+94:64:24:b9:cd:22\Library
+94:64:24:b9:cd:21\Library
+94:64:24:b9:cd:20\Library
+94:64:24:c3:02:62\Library
+94:64:24:c3:02:61\Library
+94:64:24:c3:02:60\Library
+94:64:24:c3:02:42\Library
+94:64:24:c3:02:40\Library
+94:64:24:c3:02:41\Library
+94:64:24:c2:4a:b2\Library
+94:64:24:c2:4a:b1\Library
+94:64:24:c2:4a:b0\Library
+94:64:24:c4:2a:21\Library
+94:64:24:c4:2a:20\Library
+94:64:24:c4:2a:22\Library
+94:64:24:c2:4a:d1\Library
+94:64:24:c2:4a:d0\Library
+94:64:24:c2:4a:d2\Library
+94:64:24:b9:af:00\Library
+94:64:24:b9:af:01\Library
+94:64:24:b9:af:02\Library
+94:64:24:c5:9f:71\Library
+94:64:24:c5:9f:72\Library
+94:64:24:b9:53:b1\Library
+94:64:24:b9:53:b0\Library
+94:64:24:b9:53:b2\Library
+94:64:24:b9:af:22\Library
+94:64:24:b9:af:21\Library
+94:64:24:b9:af:20\Library
+94:64:24:c1:ca:a2\Library
+94:64:24:c2:3d:c2\Library
+94:b4:0f:2d:4a:80\Library
+94:b4:0f:2d:4a:82\Library
+94:b4:0f:2d:4a:84\Library
+94:b4:0f:2d:4a:92\Library
+94:b4:0f:2d:4a:90\Library
+94:b4:0f:2e:47:22\Library
+94:b4:0f:2d:4a:94\Library
+94:64:24:c1:ca:a1\Library
+94:64:24:c1:ca:a0\Library
+94:64:24:c3:d2:31\Library
+94:64:24:c3:d2:32\Library
+94:64:24:c3:42:92\Library
+94:b4:0f:2e:46:e2\Library
+94:64:24:c4:6a:42\Library
+94:64:24:c4:3f:22\Library
+94:64:24:c1:a3:d2\Library
+94:64:24:c2:b7:d2\Campus Center
+94:64:24:c4:d6:72\Campus Center
+94:64:24:c4:d6:71\Campus Center
+94:64:24:c4:d6:70\Campus Center
+94:64:24:c4:d6:91\Campus Center
+94:64:24:c4:d6:92\Campus Center
+94:64:24:c4:d6:90\Campus Center
+94:64:24:c3:4f:82\Campus Center
+94:64:24:c3:4f:80\Campus Center
+94:64:24:c3:4f:81\Campus Center
+94:64:24:c3:4f:a1\Campus Center
+94:64:24:c3:4f:a2\Campus Center
+94:64:24:c3:4f:a0\Campus Center
+94:64:24:c2:b7:f1\Campus Center
+94:64:24:c2:b7:f0\Campus Center
+94:64:24:c2:b7:f2\Campus Center
+94:64:24:c5:39:41\Campus Center
+94:64:24:c5:39:42\Campus Center
+94:64:24:c5:39:61\Campus Center
+94:64:24:c5:39:62\Campus Center
+94:64:24:c5:39:60\Campus Center
+94:64:24:c3:e8:13\Higgins Labs
+94:64:24:c3:e8:12\Higgins Labs
+94:64:24:c3:e8:11\Higgins Labs
+94:64:24:c3:e8:10\Higgins Labs
+94:64:24:c4:fd:c3\Higgins Labs
+94:64:24:c4:fd:c0\Higgins Labs
+94:64:24:c4:fd:c2\Higgins Labs
+94:64:24:c4:fd:c1\Higgins Labs
+94:b4:0f:2c:e9:80\Fuller Apartments
+94:b4:0f:2c:e9:81\Fuller Apartments
+94:b4:0f:2c:e9:82\Fuller Apartments
+94:b4:0f:2c:e9:90\Fuller Apartments
+94:b4:0f:2c:e9:91\Fuller Apartments
+94:b4:0f:2c:e9:92\Fuller Apartments
+48:2f:6b:fd:ee:50\Fuller Apartments
+48:2f:6b:fd:ee:51\Fuller Apartments
+48:2f:6b:fd:ee:52\Fuller Apartments
+48:2f:6b:fd:ee:42\Fuller Apartments
+48:2f:6b:fd:ee:41\Fuller Apartments
+48:2f:6b:fd:ee:40\Fuller Apartments
+48:2f:6b:fe:7d:a2\Fuller Apartments
+48:2f:6b:fe:7d:a0\Fuller Apartments
+48:2f:6b:fe:7d:a1\Fuller Apartments
+48:2f:6b:fe:7d:b2\Fuller Apartments
+48:2f:6b:fe:7d:b0\Fuller Apartments
+48:2f:6b:fe:7d:b1\Fuller Apartments
+48:2f:6b:fe:06:80\Fuller Apartments
+48:2f:6b:fe:06:81\Fuller Apartments
+48:2f:6b:fe:06:82\Fuller Apartments
+48:2f:6b:fe:06:90\Fuller Apartments
+48:2f:6b:fe:06:91\Fuller Apartments
+48:2f:6b:fe:06:92\Fuller Apartments
+48:2f:6b:fe:b2:42\Fuller Apartments
+48:2f:6b:fe:b2:40\Fuller Apartments
+48:2f:6b:fe:b2:50\Fuller Apartments
+48:2f:6b:fe:b2:41\Fuller Apartments
+48:2f:6b:fe:b2:52\Fuller Apartments
+48:2f:6b:fe:b2:51\Fuller Apartments
+d4:b9:2f:a7:15:cb\6 Metcalf Rd
+d4:b9:2f:a7:15:c9\6 Metcalf Rd
+d4:b9:2f:a7:15:c7\6 Metcalf Rd
+b8:f8:53:c2:e0:17\Home
+94:64:24:c2:82:82\Fuller 223
+94:64:24:c2:82:81\Fuller 223
+94:64:24:c2:82:80\Fuller 223
+94:64:24:c2:82:62\Fuller 223
+94:64:24:c2:82:60\Fuller 223
+94:64:24:c2:82:61\Fuller 223
+ac:a3:1e:58:4b:64\Flupper BR
+ac:a3:1e:58:4b:60\Flupper BR
+ac:a3:1e:58:4b:62\Flupper BR
+ac:a3:1e:58:4b:74\Flupper BR
+ac:a3:1e:58:4b:70\Flupper BR
+ac:a3:1e:58:4b:72\Flupper BR
+ac:a3:1e:58:4f:02\Flupper BL
+ac:a3:1e:58:4f:00\Flupper BL
+ac:a3:1e:58:4f:01\Flupper BL
+94:b4:0f:27:75:c2\Flupper F
+94:b4:0f:27:75:c0\Flupper F
+94:b4:0f:27:75:c4\Flupper F
+ac:a3:1e:58:4f:12\Flupper BL
+ac:a3:1e:58:4f:10\Flupper BL
+ac:a3:1e:58:4f:11\Flupper BL
+94:b4:0f:27:75:d4\Flupper F
+94:b4:0f:27:75:d2\Flupper F
+94:b4:0f:27:75:d0\Flupper F
+94:b4:0f:28:a9:91\Kaven 115
+94:b4:0f:28:a9:93\Kaven 115
+94:b4:0f:28:a9:90\Kaven 115
+94:b4:0f:28:a9:80\Kaven 115
+94:b4:0f:28:a9:81\Kaven 115
+94:b4:0f:28:a9:83\Kaven 115
+94:64:24:c2:b7:d1\Campus Center
+94:64:24:c5:39:40\Campus Center
+94:64:24:c2:b7:d0\Campus Center
+94:64:24:c5:38:72\Campus Center
+94:64:24:c5:38:70\Campus Center
+94:64:24:c5:38:71\Campus Center
+94:64:24:c5:38:51\Campus Center
+94:64:24:c5:38:52\Campus Center
+94:64:24:c3:98:d2\Fuller Labs
+94:64:24:c3:98:d0\Fuller Labs
+94:64:24:c3:98:d1\Fuller Labs
+94:64:24:c3:98:f1\Fuller Labs
+94:64:24:c3:98:f2\Fuller Labs
+94:64:24:c3:98:f0\Fuller Labs
+ac:a3:1e:58:8a:60\Fuller Labs
+ac:a3:1e:58:8a:61\Fuller Labs
+ac:a3:1e:58:8a:62\Fuller Labs
+ac:a3:1e:58:8a:72\Fuller Labs
+ac:a3:1e:58:8a:70\Fuller Labs
+ac:a3:1e:58:8a:71\Fuller Labs
+ac:a3:1e:58:49:a2\Fuller Labs
+ac:a3:1e:58:49:a0\Fuller Labs
+ac:a3:1e:58:49:a1\Fuller Labs
+ac:a3:1e:58:49:b2\Fuller Labs
+ac:a3:1e:58:49:b0\Fuller Labs
+ac:a3:1e:58:49:b1\Fuller Labs
+94:b4:0f:27:38:93\Fuller Labs
+94:b4:0f:27:38:90\Fuller Labs
+94:b4:0f:27:38:91\Fuller Labs
+94:b4:0f:27:38:80\Fuller Labs
+94:b4:0f:27:38:81\Fuller Labs
+94:b4:0f:27:38:83\Fuller Labs
+94:64:24:b9:77:51\Fuller Labs
+94:64:24:b9:77:52\Fuller Labs
+94:64:24:b9:77:50\Fuller Labs
+94:64:24:b9:77:72\Fuller Labs
+94:64:24:b9:77:70\Fuller Labs
+94:64:24:b9:77:71\Fuller Labs
+94:64:24:c4:1d:02\Fuller Labs
+94:64:24:c4:1d:00\Fuller Labs
+94:64:24:c4:1d:22\Fuller Labs
+94:64:24:c4:1d:20\Fuller Labs
+94:64:24:c4:1d:21\Fuller Labs
+94:64:24:c4:1d:01\Fuller Labs
+94:64:24:c4:13:d2\Fuller Labs
+94:64:24:c4:13:d0\Fuller Labs
+94:64:24:c4:13:d1\Fuller Labs
+94:64:24:c4:13:f0\Fuller Labs
+94:64:24:c4:13:f2\Fuller Labs
+94:64:24:c4:13:f1\Fuller Labs
+94:64:24:c4:fa:41\Fuller Labs
+94:64:24:c4:fa:42\Fuller Labs
+94:64:24:c4:fa:40\Fuller Labs
+94:64:24:c4:fa:62\Fuller Labs
+94:64:24:c4:fa:60\Fuller Labs
+94:64:24:c4:fa:61\Fuller Labs
+94:64:24:c1:3e:b0\Fuller Labs
+94:64:24:c1:3e:b2\Fuller Labs
+94:64:24:c1:3e:b1\Fuller Labs
+94:64:24:c1:3e:90\Fuller Labs
+94:64:24:c1:3e:92\Fuller Labs
+94:64:24:c1:3e:91\Fuller Labs
+94:64:24:c4:96:82\Innovation Studio
+94:64:24:c4:96:a2\Innovation Studio
+94:64:24:c4:96:a0\Innovation Studio
+94:64:24:c4:96:a1\Innovation Studio
+94:64:24:c4:96:80\Innovation Studio
+94:64:24:c4:96:81\Innovation Studio
+94:64:24:c0:f6:22\Innovation Studio
+94:64:24:c0:f6:20\Innovation Studio
+94:64:24:c0:f6:21\Innovation Studio
+94:64:24:c0:f6:02\Innovation Studio
+94:64:24:c0:f6:00\Innovation Studio
+94:64:24:c0:f6:01\Innovation Studio
+94:64:24:c2:d8:60\Innovation Studio
+94:64:24:c2:d8:42\Innovation Studio
+94:64:24:c2:d8:40\Innovation Studio
+94:64:24:c2:d8:62\Innovation Studio
+94:64:24:c2:d8:61\Innovation Studio
+94:64:24:c2:d8:41\Innovation Studio
+94:64:24:c3:06:82\Innovation Studio
+94:64:24:c3:06:80\Innovation Studio
+94:64:24:c3:06:81\Innovation Studio
+94:64:24:c3:06:62\Innovation Studio
+94:64:24:c3:06:60\Innovation Studio
+94:64:24:c3:06:61\Innovation Studio
+94:64:24:c1:a4:31\Innovation Studio
+94:64:24:c1:a4:30\Innovation Studio
+94:64:24:c1:a4:32\Innovation Studio
+94:64:24:c1:a4:52\Innovation Studio
+94:64:24:c1:a4:50\Innovation Studio
+94:64:24:c1:a4:51\Innovation Studio
+94:64:24:c2:29:b2\Innovation Studio
+94:64:24:c2:29:b0\Innovation Studio
+94:64:24:c2:29:b1\Innovation Studio
+94:64:24:c2:29:d2\Innovation Studio
+94:64:24:c2:29:d1\Innovation Studio
+94:64:24:c2:29:d0\Innovation Studio
+cc:88:c7:7e:e1:b0\Alumni Gym (Carr Plaza)
+cc:88:c7:7e:e1:b1\Alumni Gym (Carr Plaza)
+cc:88:c7:7e:e1:b2\Alumni Gym (Carr Plaza)
+cc:88:c7:7e:e1:a2\Alumni Gym (Carr Plaza)
+cc:88:c7:7e:e1:a1\Alumni Gym (Carr Plaza)
+cc:88:c7:7e:e1:a0\Alumni Gym (Carr Plaza)
