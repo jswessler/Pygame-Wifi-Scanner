@@ -19,13 +19,13 @@ import math, subprocess, threading, os, time
 import pygame as pg
 import numpy as np
 from time import process_time, sleep
-#import heartrate; heartrate.trace(browser=True)
-#---Functions
+
 if userPassword=='':
     userPassword=input("You need to put in your login password for this analyzer to work! Input it here: ")
     print("If you don't want to have to do this every time, go to line 9 of the python code and put the password there.")
 #Your Mac login password. Yeah, I know this is sus. I'm working on a fix for this.
 
+#---Functions
 def scan(): #Scans all networks around you using airport scan (or -s).
     global nDic,timesScanned,readyToScan,ready,bssList,phyMode,renderFrame,hold,first,scanStatus,scFrame,lbrCounter,lbrsiEnabled
     stScanTime = process_time()
@@ -637,7 +637,7 @@ while not done: #Main pygame loop
                     tempHeight+=max(max(5,13-math.floor(math.sqrt(len(nDic)*2))),2*int(math.pow(100+j.avgrssi,2)))
             if barsMaxHeight<tempHeight:
                 barsMaxHeight=tempHeight
-#Preparing Rectangles for Bar Graph --------------------------------------------------------------------------
+#Making Rectangles for Bar Graph --------------------------------------------------------------------------
     if renderFrame or moving:
         rectList = []
         whiteLines = []
@@ -749,7 +749,7 @@ while not done: #Main pygame loop
         i.render()
         pg.draw.rect(screen, i.color, rectList[c3][0])
         c3+=1
-    #Render 3 bars on the right (LBR, avgDiff, Quality) --------------------------------------------------------------------------
+    #Render Diff bar on the top right (Middle)--------------------------------------------------------------------------
     if avgDiff<1:
         pg.draw.line(screen, tuple(max(80,int(i)*int(scFrame)/12) for i in scanStatus) if scFrame>0 and avgDiff<1.9 else (80,80,80),(WID-20,56),(WID-20,26),5)
     if avgDiff>=1.9 and scFrame!=0:
@@ -758,6 +758,7 @@ while not done: #Main pygame loop
     if pg.Rect(WID-25,28,10,26).collidepoint(pg.mouse.get_pos()):
         renderText(str(round(avgDiff,2)),WID-10-textLength(str(round(avgDiff,2))),HEI-115,(230,230,230))
         renderHov("Shows average delta in network signals over time.")
+    #Render LBR bar on the top right (Left)--------------------------------------------------------------------------
     if lbrsiEnabled:
         pg.draw.line(screen, (80,80+scFrame*13.333,80+scFrame*13.333) if lbrDiff>1 else (80,80+scFrame*lbrDiff*13.333,80) if lbrDiff>0 else (140,140,80) if lbrCounter==0 else (80,80,80), (WID-30,56),(WID-30,26),5)
         if lbrCounter!=0:
@@ -770,6 +771,7 @@ while not done: #Main pygame loop
         if pg.mouse.get_pressed()[0] and not stopped:
             lbrsiEnabled = not lbrsiEnabled
             stopped = True
+    #Render Quality bar on the top right (Right)--------------------------------------------------------------------------
     if iLst[7]!=-1 and iLst[5]!=-1 and iLst[4]!="None":
         qual = round(sum(rssiList[0:10])/10-sum(noiseList[0:50])/50,3)
         if qual>=0 and qual<50:
@@ -855,6 +857,7 @@ while not done: #Main pygame loop
             except:
                 bLookup = 'Unknown'
         remHov=hovNum
+#Display data when hovering over a network ----------------------------------------------------------------------------
         if bLookup!='':
             d,e = distCalc(i.avgrssi, int(channel))
             renderText("RSSI: " + str(round(i.avgrssi,1)) + " - " + str(len(i.rssi)), WID-10-textLength("RSSI:" + str(round(i.avgrssi,1)) + " - " + str(len(i.rssi)),str(d) + " +/- " + str(e) + " Feet"),HEI-175,(230,230,230),"Signal strength of this network / Accuracy from 1-10.",True,str(d) + " +/- " + str(e) + " Feet")
@@ -942,8 +945,8 @@ while not done: #Main pygame loop
         else:
             if avgTxr!=0:
                 if tSpd:
-                    txtrect = renderText(str(diDownSpd),bat+10+textLength(str(round(avgTxr)) + "/" + str(maxSpd) + "Mb/s"),HEI-65,(230,230,230),"Download Speed",True,str(round(downloadSpd/1048576/avgTxr*100,1)) + "%")
-                    txtrect2 = renderText(str(diUpSpd),bat+10+textLength(str(round(avgTxr)) + "/" + str(maxSpd) + "Mb/s"),HEI-85,(230,230,230),"Upload Speed",True,str(round(uploadSpd/1048576/avgTxr*100,1)) + "%")
+                    txtrect = renderText(str(diDownSpd),bat+10+textLength(str(round(avgTxr)) + "/" + str(maxSpd) + "Mb/s"),HEI-65,(230,230,230),"Download Speed",True,str(round(downloadSpd/1048576/avgTxr*100,2)) + "%")
+                    txtrect2 = renderText(str(diUpSpd),bat+10+textLength(str(round(avgTxr)) + "/" + str(maxSpd) + "Mb/s"),HEI-85,(230,230,230),"Upload Speed",True,str(round(uploadSpd/1048576/avgTxr*100,2)) + "%")
                 else:
                     txtrect = renderText("Off",bat+10+textLength(str(round(avgTxr)) + "/" + str(maxSpd) + "Mb/s"),HEI-75,(160,160,160),"Click to turn on throughtput tracking.")
                 if (txtrect.inflate(0,-2).collidepoint(pg.mouse.get_pos()) or txtrect2.inflate(0,-2).collidepoint(pg.mouse.get_pos())) and pg.mouse.get_pressed()[0] and not stopped:
@@ -1078,7 +1081,7 @@ while not done: #Main pygame loop
         phyMode = ''
         makeNewLists()
     storeSsid = iLst[4]
-    renderText("a0.42", WID-40,5, tuple(i+max(0,180-(dFromPt(WID-40,5)*3)) for i in bgColor),"Version Alpha 0.42 - (October 26th)", False)
+    renderText("a0.43", WID-40,5, tuple(i+max(0,180-(dFromPt(WID-40,5)*3)) for i in bgColor),"Version Alpha 0.43 - (December 3rd)", False)
     if pg.mouse.get_pos()[0]>WID-43 and pg.mouse.get_pos()[1]<20 and pg.mouse.get_pressed()[0]:
         os.system("open https://jswessler.carrd.co/")
     pg.display.flip()

@@ -1,4 +1,4 @@
-# Wifi-Scanner
+# Pygame-Wifi-Scanner
 Python/Pygame based wifi scanner for MacOS. CLI only, (subprocess) minimal libraries needed.
 
 For this to work, you need to put in your Mac login password.
