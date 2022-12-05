@@ -418,7 +418,7 @@ cols = [(45,230,205),(210,55,20),(245,130,20),(225,200,20),(75,245,20),(230,35,2
 channelList = [1, 6, 11, 36, 40, 44, 48, 52, 56, 60, 64, 100, 104, 108, 112, 116, 120, 124, 128, 132, 136, 140, 144, 149, 153, 157, 161, 165]
 # Change if your mac has different channels it can connect to. (Will be automated in the future)
 
-connected = hold = readyToScan = ableToType = tSpd = True
+connected = hold = readyToScan = ableToType = tSpd = secCircles = True
 renderFrame = updatesPaused = ready = done = stopped = gotPhy = lbrsiEnabled = False
 iRunCount = timesScanned = maxSpd = hovData = counter = rememberRssi = rememberNoise = scFrame = spFrame = rememberTxr = avgSec = avgDiff = lbrCounter = lbrDiff = remLbr = nTra = downloadSpd = uploadSpd = 0
 avgLbr = 1.01
@@ -608,14 +608,14 @@ while not done: #Main pygame loop
             except:
                 channel = i.channel
             channel = (int(channel))
-            if any(v==str(i.bssid) for v in notesLines):
+            if any(v==str(i.bssid) for v in notesLines): #If the network is known
                 knownNetworks+=1
-                if channel>11:
+                if channel>11: #Shades of green if 5ghz
                     i.updateColor((150,180,150))
                 else:
                     i.updateColor((180,150,150))
             else:
-                if channel>11:
+                if channel>11: #Shades of red if 2.4ghz
                     i.updateColor((90,110,90))
                 else:
                     i.updateColor((110,90,90))
@@ -626,7 +626,7 @@ while not done: #Main pygame loop
             remLbr = avgLbr
         else:
             avgLbr = 1.0
-            avgDiff = 0.0
+            avgDiff = 0.0 #These 2 variables relate to the bars on the top right
 #Sorting Flux List, determining scale factor for bars --------------------------------------------------------------------------
         barsMaxHeight=0
         for i in range(0,len(channelList)):
@@ -659,7 +659,7 @@ while not done: #Main pygame loop
                     whiteLines.append(wl)
         rectList.sort(key=lambda x: x[4])
         rectList.sort(key=lambda x: int(x[2]))
-        rectList.sort(key=lambda x: x[3], reverse=True)
+        rectList.sort(key=lambda x: x[3], reverse=True) #Same sorting as nDic
     b=[]
 #Calculate selected channel's signal strength --------------------------------------------------------------------------
     for i in rectList:
@@ -670,7 +670,7 @@ while not done: #Main pygame loop
             chnSig=''
     if chnSig!='':
         renderText(str(round(abs(chnSig),2)),bat-45,HEI-51,(230,230,230),"Total signal in this channel.")
-        pg.draw.line(screen, (20,160,160) if int(i[2])>11 else (160,20,160), (int((chnSig+10)*((WID-55)/95)+(WID-40)),31),(int((chnSig+10)*((WID-55)/95)+(WID-40)),51),2)
+        pg.draw.line(screen, (20,160,160) if int(i[2])>11 else (160,20,160), (int((chnSig+10)*((WID-55)/95)+(WID-40)),31),(int((chnSig+10)*((WID-55)/95)+(WID-40)),51),2) #Draws a line on the main bar that represents the RSSI of that channel
     try:
         pg.draw.line(screen, (20,240,100), (int((sigInArea+10)*((WID-55)/95)+(WID-40)),31),(int((sigInArea+10)*((WID-55)/95)+(WID-40)),51),2)
     except:
@@ -712,14 +712,14 @@ while not done: #Main pygame loop
                 j.updateColor((190,190,40)) #Yellow if 0:14 match and same ssid
             if nDic[hovData].bssid[0:15]==j.bssid[0:15] and hovData!=j:
                 a = abs(int(nDic[hovData].bssid[15],16)-int(j.bssid[15],16))
-                j.updateColor((60+min(a*30,180),240-min(a*30,180),60)) #a=1 = green, up to a=6 red
+                j.updateColor((60+min(a*30,180),220-min(a*30,180),60)) #a=1 = green, up to a=6 red
                 if a<3:
                     linked+=1
             if nDic[hovData].bssid[0:16]==j.bssid[0:16] and hovData!=j:
                 if nDic[hovData].bssid==j.bssid:
                     j.updateColor((230,120,100)) #Light Orange for the one you are hovering over
                 else:
-                    j.updateColor((40,210,220)) #Cyan if the networks are very similar
+                    j.updateColor((40,200,210)) #Cyan if the networks are very similar
 
     if clickNum!='':
         try:
@@ -730,7 +730,7 @@ while not done: #Main pygame loop
 #Rendering RSSI View & Bar Graph --------------------------------------------------------------------------
     try:
         HOV=nDic[hovData]
-        if hovNum!='':
+        if hovNum!='': #Draws a line and circle connecting back to the top bar
             pg.draw.line(screen, (160,160,160), (HOV.xpos-6,HOV.ypos), (HOV.xpos-6, 40), 2)
             pg.draw.circle(screen, (160,160,160), (HOV.xpos-5,41), 5)
     except:
@@ -739,7 +739,8 @@ while not done: #Main pygame loop
     c3=0
     for i in nDic.values():
         scTemp = secLookup(i.security,i.channel)
-        pg.draw.circle(screen, scTemp[1], (i.xpos-5, i.ypos+4), 3)
+        if secCircles:            
+            pg.draw.circle(screen, scTemp[1], (i.xpos-5, i.ypos+4), 3) #Draws a circle next to each name for security
         try:
             avgSec+=scTemp[2]
             if scTemp[0]=="Unknown":
@@ -780,14 +781,17 @@ while not done: #Main pygame loop
         if pg.Rect(WID-15,28,10,26).collidepoint(pg.mouse.get_pos()):
             renderText(str(min(50,round(qual,1))) + "/50",WID-10-textLength(str(min(50,round(qual,1))) + "/50"),HEI-115,(230,230,230))
             renderHov("Shows quality of your connection.")
-    #Render bottom dynamic text --------------------------------------------------------------------------
+    #Render bottom dynamic text and bar lines --------------------------------------------------------------------------
     if len(nDic)>0:
         renderText(round(abs(sigInArea),2), bat-45, HEI-31, (230,230,230), "Total radio flux in area. (Estimate only)")
         avgSec/=len(nDic)+1
         if unknown:
-            renderText(round(avgSec,3), 30+wi2, HEI-31, (255,255,0), "Network with unknown security! Time to fill it in!")
+            txtRect = renderText(round(avgSec,3), 30+wi2, HEI-31, (255,255,0), "Network with unknown security! Time to fill it in!")
         else:
-            renderText(round(avgSec,3), 20+wi2, HEI-31, (max(0,255-(avgSec*36)), max(0,(6-abs(avgSec-6))*42.5), max(0,(avgSec-7)*52)), "Average network security of nearby networks, from 1-12")
+            txtRect = renderText(round(avgSec,3), 20+wi2, HEI-31, (max(0,255-(avgSec*36)), max(0,(6-abs(avgSec-6))*42.5), max(0,(avgSec-7)*52)), "Average security of nearby networks from 1-12")
+            if txtRect.inflate(0,-2).collidepoint(pg.mouse.get_pos()) and pg.mouse.get_pressed()[0] and not stopped:
+                secCircles = not secCircles
+                stopped = True
     for i in range(0,len(whiteLines)):
         pg.draw.line(screen, (240,240,240), whiteLines[i][0:2], whiteLines[i][2:], 1)
     renderFrame=False
@@ -803,7 +807,7 @@ while not done: #Main pygame loop
             colSet = (100,190,100)
         else:
             colSet = (190,100,100)
-        f = open('notes.txt', 'r')
+        f = open('notes.txt', 'r') #notes.txt contains user notes on network BSSID's
         g = f.readlines()
         if ableToType:
             currentTxt = notesLines.get(str(i.bssid), '')
@@ -811,9 +815,9 @@ while not done: #Main pygame loop
             currentTxt = currentTxt[:-1]
         for e in all_events:
             if e.type == pg.KEYDOWN:
-                if e.key == pg.K_RETURN:
+                if e.key == pg.K_RETURN: #Finalize and store new note in the txt file.
                     flines=[]
-                    if pg.mouse.get_pos()[0]<WID/18 and pg.mouse.get_pos()[1]<HEI/20 or pg.mouse.get_pressed()[2]:
+                    if pg.mouse.get_pos()[0]<WID/18 and pg.mouse.get_pos()[1]<HEI/20 or pg.mouse.get_pressed()[2]: #If your mouse is in the box, it will save this note to most linked networks.
                         for j in nDic.values():
                             if j.bssid[0:16]==i.bssid[0:16] or (j.bssid[0:14]==i.bssid[0:14] and abs(int(i.bssid[15],16)-int(j.bssid[15],16))<3):
                                 flines.append(j)
@@ -825,12 +829,12 @@ while not done: #Main pygame loop
                     f.close()
                     bs=[]
                     for q in flines:
-                        notesLines.append(str(q.bssid) + "\\" + str(currentTxt))
+                        notesLines.append(str(q.bssid) + "\\" + str(currentTxt)) #Forward slash delimiter
                     for line in notesLines[::-1]:
                         if line[0:17] in bs:
-                            notesLines.pop(notesLines.index(line))
+                            notesLines.pop(notesLines.index(line)) #Takes out existing note
                         else:
-                            bs.append(line[0:17])
+                            bs.append(line[0:17]) #Puts in new note
                     f = open('notes.txt', 'w')
                     f.write('')
                     for line in notesLines[:-1]:
@@ -841,7 +845,7 @@ while not done: #Main pygame loop
                     currentTxt = ''
                     f = open('notes.txt', 'r')
                     tLines = f.readlines()
-                    notesLines = convertToDict(tLines)
+                    notesLines = convertToDict(tLines) #Updates the "notesLines" varible to have new known networks without having to wait for an update
                     f.close()
                     renderFrame=True
                 elif e.key == pg.K_BACKSPACE:
@@ -1081,7 +1085,7 @@ while not done: #Main pygame loop
         phyMode = ''
         makeNewLists()
     storeSsid = iLst[4]
-    renderText("a0.43", WID-40,5, tuple(i+max(0,180-(dFromPt(WID-40,5)*3)) for i in bgColor),"Version Alpha 0.43 - (December 3rd)", False)
+    renderText("a0.43a", WID-40,5, tuple(i+max(0,180-(dFromPt(WID-40,5)*3)) for i in bgColor),"Version Alpha 0.43a - (December 5th)", False)
     if pg.mouse.get_pos()[0]>WID-43 and pg.mouse.get_pos()[1]<20 and pg.mouse.get_pressed()[0]:
         os.system("open https://jswessler.carrd.co/")
     pg.display.flip()
