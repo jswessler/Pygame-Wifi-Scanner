@@ -229,10 +229,10 @@ def secLookup(sec, chn): #Looks up security rating from the dictionary further d
         re=12
     if re>11:
         reDisplay = "Excellent" #WPA3 networks (mostly iphones)
-        co = (5,140,255)
+        co = (20,140,255)
     elif re>9:
         reDisplay = "Great" #Enterprise/School network
-        co = (10,210,240)
+        co = (25,210,240)
     elif re>6:
         reDisplay = "Good" #Average home network
         co = (60,225,135)
@@ -547,7 +547,7 @@ while not done: #Main pygame loop
         readyToScan=False
         t = threading.Thread(target=scan)
         t.start()
-    if counter%(70+delay) == 1 and tSpd:
+    if counter%(65+delay) == 1 and tSpd:
         t = threading.Thread(target=scanSpd)
         t.start()
     if iLst[4]!="Not Connected":
@@ -748,7 +748,7 @@ while not done: #Main pygame loop
         except:
             pass
         i.render()
-        pg.draw.rect(screen, i.color, rectList[c3][0])
+        pg.draw.rect(screen, i.color, rectList[c3][0]) #IF THIS LINE HAS AN INDEX ERROR YOUR MAC HAS DIFFERENT CHANNELS IT CONNECTS TO
         c3+=1
     #Render Diff bar on the top right (Middle)--------------------------------------------------------------------------
     if avgDiff<1:
@@ -936,7 +936,7 @@ while not done: #Main pygame loop
     else:
         if iLst[6]=='init':
             if iLst[7]==-1:
-                renderText("Disconnected",10,60,(200,160,80),"Currently disconnected from WiFi.")
+                renderText("Disconnected" if iLst[7]==-1 else "Disconnecting...",10,60,(200,160,80) if iLst[7]==-1 else (220,140,80),"Currently disconnected from WiFi.")
             else:
                 renderText("Disconnecting...",10,60,(220,140,80),"Disconnecting from this network.")
         elif iLst[6]=='authenticating':
@@ -966,19 +966,16 @@ while not done: #Main pygame loop
     if len(nDic)==0 and iLst[5]!=-1 and timesScanned>0:
         renderText("No Nearby Networks",10,80,(240,20,20),"No nearby networks to scan!")
     elif updatesPaused:
-        txtrect = renderText("Updates Off",10,80,(230,120,20),"Scanning has been manually disabled.",True,str(len(set(nameList))) + " - " + str(knownNetworks) + "/" + str(len(nDic)))
+        txtrect = renderText("Updates Off",10,80,(230,120,20),"Scanning has been manually disabled.",True,str(linked-1) + " Linked Networks" if linked!=0 else str(len(set(nameList))) + " - " + str(knownNetworks) + "/" + str(len(nDic)))
     elif len(nDic)>0 and iLst[5]==-1:
-        renderText("Updates Disabled",10,80,(190,190,20),"New updates are disabled.",True,str(len(set(nameList))) + " - " + str(knownNetworks) + "/" + str(len(nDic)))
+        renderText("Updates Disabled",10,80,(190,190,20),"New updates are disabled.",True,str(linked-1) + " Linked Networks" if linked!=0 else str(len(set(nameList))) + " - " + str(knownNetworks) + "/" + str(len(nDic)))
     elif iLst[5]==-1 and len(nDic)==0:
         renderText("Scan Disabled",10,80,(240,120,120),"Scanning only works if Wifi is enabled.")
     else:
         if len(nDic)==0:
             renderText("Searching." if counter%18<6 else "Searching.." if counter%18<12 else "Searching...",10,80,(160,160,160),"Scanning networks around you...")
         else:    
-            if linked!=0:
-                txtrect = renderText("Scan Active", 10,80,(110,245,20),"Scanning is active!",True,str(linked-1) + " Linked Networks")
-            else:
-                txtrect = renderText("Scan Active", 10,80,(110,245,20),"Scanning is active!",True,str(len(set(nameList))) + " - " + str(knownNetworks) + "/" + str(len(nDic)))
+            txtrect = renderText("Scan Active", 10,80,(110,245,20),"Scanning is active!",True,str(linked-1) + " Linked Networks" if linked!=0 else str(len(set(nameList))) + " - " + str(knownNetworks) + "/" + str(len(nDic)))
     if txtrect.inflate(0,-2).collidepoint(pg.mouse.get_pos()) and pg.mouse.get_pressed()[0] and not stopped:
         updatesPaused = not updatesPaused
         stopped = True
@@ -1085,7 +1082,7 @@ while not done: #Main pygame loop
         phyMode = ''
         makeNewLists()
     storeSsid = iLst[4]
-    renderText("a0.43a", WID-40,5, tuple(i+max(0,180-(dFromPt(WID-40,5)*3)) for i in bgColor),"Version Alpha 0.43a - (December 5th)", False)
+    renderText("a0.43a", WID-40,5, tuple(i+max(0,180-(dFromPt(WID-40,5)*3)) for i in bgColor),"Version Alpha 0.43b - (December 16th)", False)
     if pg.mouse.get_pos()[0]>WID-43 and pg.mouse.get_pos()[1]<20 and pg.mouse.get_pressed()[0]:
         os.system("open https://jswessler.carrd.co/")
     pg.display.flip()

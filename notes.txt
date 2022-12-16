@@ -1093,11 +1093,6 @@ ac:a3:1e:58:87:c0\Higgins 116 FR
 94:64:24:b9:af:00\Library
 94:64:24:b9:af:01\Library
 94:64:24:b9:af:02\Library
-94:64:24:c5:9f:71\Library
-94:64:24:c5:9f:72\Library
-94:64:24:b9:53:b1\Library
-94:64:24:b9:53:b0\Library
-94:64:24:b9:53:b2\Library
 94:64:24:b9:af:22\Library
 94:64:24:b9:af:21\Library
 94:64:24:b9:af:20\Library
@@ -1114,10 +1109,8 @@ ac:a3:1e:58:87:c0\Higgins 116 FR
 94:64:24:c1:ca:a0\Library
 94:64:24:c3:d2:31\Library
 94:64:24:c3:d2:32\Library
-94:64:24:c3:42:92\Library
 94:b4:0f:2e:46:e2\Library
 94:64:24:c4:6a:42\Library
-94:64:24:c4:3f:22\Library
 94:64:24:c1:a3:d2\Library
 94:64:24:c2:b7:d2\Campus Center
 94:64:24:c4:d6:72\Campus Center
@@ -1316,3 +1309,135 @@ cc:88:c7:7e:e1:b2\Alumni Gym (Carr Plaza)
 cc:88:c7:7e:e1:a2\Alumni Gym (Carr Plaza)
 cc:88:c7:7e:e1:a1\Alumni Gym (Carr Plaza)
 cc:88:c7:7e:e1:a0\Alumni Gym (Carr Plaza)
+94:b4:0f:2d:4a:62\Fuller Apartments
+94:b4:0f:2d:4a:60\Fuller Apartments
+94:b4:0f:2d:4a:61\Fuller Apartments
+94:b4:0f:2d:4a:71\Fuller Apartments
+94:b4:0f:2d:4a:72\Fuller Apartments
+94:b4:0f:2d:4a:70\Fuller Apartments
+48:2f:6b:01:ff:71\Fuller Apartments
+48:2f:6b:01:ff:72\Fuller Apartments
+48:2f:6b:01:ff:70\Fuller Apartments
+48:2f:6b:01:ff:62\Fuller Apartments
+48:2f:6b:01:ff:60\Fuller Apartments
+48:2f:6b:01:ff:61\Fuller Apartments
+48:2f:6b:07:06:52\Fuller Apartments
+48:2f:6b:07:06:50\Fuller Apartments
+48:2f:6b:07:06:51\Fuller Apartments
+48:2f:6b:07:06:41\Fuller Apartments
+48:2f:6b:07:06:40\Fuller Apartments
+48:2f:6b:07:06:42\Fuller Apartments
+48:2f:6b:fe:97:92\East Hall
+48:2f:6b:fe:97:91\East Hall
+48:2f:6b:fe:97:90\East Hall
+48:2f:6b:fe:97:80\East Hall
+48:2f:6b:fe:97:82\East Hall
+48:2f:6b:fe:97:81\East Hall
+48:2f:6b:fc:b2:12\East Hall
+48:2f:6b:fc:b2:10\East Hall
+48:2f:6b:fc:b2:11\East Hall
+48:2f:6b:fc:b2:00\East Hall
+48:2f:6b:fc:b2:01\East Hall
+48:2f:6b:fc:b2:02\East Hall
+48:2f:6b:fc:d3:02\East Hall
+48:2f:6b:fc:d3:11\East Hall
+48:2f:6b:fc:d3:00\East Hall
+48:2f:6b:fc:d3:01\East Hall
+48:2f:6b:fc:d3:10\East Hall
+48:2f:6b:fc:d3:12\East Hall
+48:2f:6b:07:05:82\East Hall
+48:2f:6b:07:05:92\East Hall
+48:2f:6b:07:05:90\East Hall
+48:2f:6b:07:05:91\East Hall
+48:2f:6b:07:05:80\East Hall
+48:2f:6b:07:05:81\East Hall
+60:22:32:10:1e:12\Armenian Church
+66:22:32:10:1e:12\Armenian Church
+66:22:32:10:1e:13\Armenian Church
+6a:22:32:10:1e:13\Armenian Church
+60:22:32:10:16:56\Armenian Church
+e4:95:6e:0d:71:e0\Armenian Church
+94:64:24:c3:0a:70\Innovation Studio 203
+94:64:24:c3:0a:71\Innovation Studio 203
+94:64:24:c3:0a:72\Innovation Studio 203
+94:64:24:c3:0a:50\Innovation Studio 203
+94:64:24:c3:0a:51\Innovation Studio 203
+94:64:24:c3:0a:52\Innovation Studio 203
+94:64:24:c5:89:12\Innovation Studio 205
+94:64:24:c5:89:10\Innovation Studio 205
+94:64:24:c5:89:11\Innovation Studio 205
+94:64:24:c5:88:f2\Innovation Studio 205
+94:64:24:c5:88:f0\Innovation Studio 205
+94:64:24:c5:88:f1\Innovation Studio 205
+94:64:24:c3:42:92\Library
+94:64:24:c3:42:90\Library
+94:64:24:c3:42:91\Library
+94:64:24:c3:42:b2\Library
+94:64:24:c3:42:b0\Library
+94:64:24:c3:42:b1\Library
+94:64:24:c4:7e:b0\Library
+94:64:24:c4:7e:b2\Library
+94:64:24:c4:7e:b1\Library
+94:64:24:c4:7e:d2\Library
+94:64:24:c4:7e:d0\Library
+94:64:24:c4:7e:d1\Library
+94:64:24:b9:70:90\Library
+94:64:24:b9:70:91\Library
+94:64:24:b9:70:92\Library
+94:64:24:b9:70:b0\Library
+94:64:24:b9:70:b2\Library
+94:64:24:b9:70:b1\Library
+94:64:24:c1:64:d2\Library
+94:64:24:c1:64:d1\Library
+94:64:24:c1:64:d0\Library
+94:64:24:c1:64:f2\Library
+94:64:24:c1:64:f0\Library
+94:64:24:c1:64:f1\Library
+94:64:24:c4:3f:22\Library
+94:64:24:c4:3f:20\Library
+94:64:24:c4:3f:21\Library
+94:64:24:c4:3f:40\Library
+94:64:24:c4:3f:41\Library
+94:64:24:c4:3f:42\Library
+94:64:24:c5:9f:92\Library Near IT Desk
+94:64:24:c5:9f:90\Library Near IT Desk
+94:64:24:c5:9f:91\Library Near IT Desk
+94:64:24:c5:9f:70\Library Near IT Desk
+94:64:24:c5:9f:71\Library Near IT Desk
+94:64:24:c5:9f:72\Library Near IT Desk
+94:64:24:c3:de:50\Library Near Cafe
+94:64:24:c3:de:51\Library Near Cafe
+94:64:24:c3:de:52\Library Near Cafe
+94:64:24:c3:de:30\Library Near Cafe
+94:64:24:c3:de:31\Library Near Cafe
+94:64:24:c3:de:32\Library Near Cafe
+94:64:24:b9:53:b0\Library Near Printers/Back Corner
+94:64:24:b9:53:d2\Library Near Printers/Back Corner
+94:64:24:b9:53:d0\Library Near Printers/Back Corner
+94:64:24:b9:53:d1\Library Near Printers/Back Corner
+94:64:24:b9:53:b2\Library Near Printers/Back Corner
+94:64:24:b9:53:b1\Library Near Printers/Back Corner
+94:b4:0f:27:4e:e2\East Hall 114
+94:b4:0f:27:4e:f0\East Hall 114
+94:b4:0f:27:4e:e0\East Hall 114
+94:b4:0f:27:4e:f4\East Hall 114
+94:b4:0f:27:4e:e4\East Hall 114
+94:b4:0f:27:4e:f2\East Hall 114
+94:b4:0f:27:53:24\East Hall
+94:b4:0f:27:53:34\East Hall
+94:b4:0f:27:53:30\East Hall
+94:b4:0f:27:53:32\East Hall
+94:b4:0f:27:53:20\East Hall
+94:b4:0f:27:53:22\East Hall
+48:2f:6b:fc:6c:01\East Hall
+48:2f:6b:fc:6c:00\East Hall
+48:2f:6b:fc:6c:10\East Hall
+48:2f:6b:fc:6c:02\East Hall
+48:2f:6b:fc:6c:12\East Hall
+48:2f:6b:fc:6c:11\East Hall
+48:2f:6b:ff:10:a2\East Hall
+48:2f:6b:ff:10:a0\East Hall
+48:2f:6b:ff:10:b2\East Hall
+48:2f:6b:ff:10:a1\East Hall
+48:2f:6b:ff:10:b0\East Hall
+48:2f:6b:ff:10:b1\East Hall
