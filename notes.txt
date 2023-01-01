@@ -1441,3 +1441,4 @@ e4:95:6e:0d:71:e0\Armenian Church
 48:2f:6b:ff:10:a1\East Hall
 48:2f:6b:ff:10:b0\East Hall
 48:2f:6b:ff:10:b1\East Hall
+1a:3b:f3:47:b3:db\5 Metcalf Rd

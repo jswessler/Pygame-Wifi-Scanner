@@ -3,8 +3,7 @@
 # Add a lot more comments
 # Automatically get supported channels/gens
 # Color code more things!
-# Make resizing work better with resizable bars
-# See if collision fixes work
+# Redo color coding to check how many digits match total (Line 700)
 
 userPassword = ""
 try:
@@ -14,7 +13,6 @@ try:
 except:
     pass
 from copy import copy
-from statistics import mean
 import math, subprocess, threading, os, time
 import pygame as pg
 import numpy as np
@@ -45,7 +43,7 @@ def scan(): #Scans all networks around you using airport scan (or -s).
         scFrame = 12
         ready = False
         time.sleep(1.25)
-        readyToScan=True
+        readyToScan = True
         return
     nDicU={}
     for net in scanOutput: #For each network in the network list
@@ -195,6 +193,26 @@ def convertToDict(lis): #Converts Lists to Dicts.
     res_dct = {lst[i]: lst[i + 1] for i in range(0, len(lst), 2)}
     return res_dct
 
+def getLinked(cli): #cli = bssid of network
+    linked = []
+    for j in nDic.values():
+        if nDic[cli].bssid[2:15]==j.bssid[2:15] and cli!=j:
+            j.updateColor((40,80,180),"Likely same router.") #Dull Blue if the first two numbers are the same
+            linked.append(j.bssid)
+        if nDic[cli].bssid[0:14]==j.bssid[0:14] and cli!=j and nDic[cli].ssid==j.ssid:
+            j.updateColor((190,190,40),"Different but nearby routers.") #Yellow if 0:14 match and same ssid
+        if nDic[cli].bssid[0:15]==j.bssid[0:15] and cli!=j:
+            a = abs(int(nDic[cli].bssid[15],16)-int(j.bssid[15],16))
+            j.updateColor((60+min(a*30,180),220-min(a*30,180),60),"Same router, different channel.") #a=1 = green, up to a=6 red
+            if a<3:
+                linked.append(j.bssid)
+        if nDic[cli].bssid[0:16]==j.bssid[0:16] and cli!=j:
+            if nDic[cli].bssid==j.bssid:
+                j.updateColor((230,120,100)) #Light Orange for the one you are hovering over
+            else:
+                j.updateColor((40,200,210),"Same router.") #Cyan if the networks are very similar
+    return list(set(linked))
+
 def secLookup(sec, chn): #Looks up security rating from the dictionary further down. THIS NEEDS UPDATING
     global secs #Input -1 as channel to just return the number
     if ',' in chn:
@@ -253,11 +271,17 @@ def secLookup(sec, chn): #Looks up security rating from the dictionary further d
         else:
             return [reDisplay + " Security (" + str(r2) + ")",co,re]
 
-def textLength(text,text2=''): #Gets textlength of a string, useful for right-aligning text
-    if pg.mouse.get_pressed()[2] and text2!='':
-        tempsurface = font.render(str(text2),False,(20,20,20))
+def textLength(text,text2='',size=True): #Gets textlength of a string, useful for right-aligning text
+    if size:
+        if pg.mouse.get_pressed()[2] and text2!='':
+            tempsurface = font.render(str(text2),False,(20,20,20))
+        else:
+            tempsurface = font.render(str(text),False,(20,20,20))
     else:
-        tempsurface = font.render(str(text),False,(20,20,20))
+        if pg.mouse.get_pressed()[2] and text2!='':
+            tempsurface = smallFont.render(str(text2),False,(20,20,20))
+        else:
+            tempsurface = smallFont.render(str(text),False,(20,20,20))
     r = tempsurface.get_rect()
     return r.size[0]
 
@@ -269,7 +293,7 @@ def renderText(text, x, y, color, hovDesc='', size=True, cDesc=''): #Code for re
             if pg.mouse.get_pressed()[0]:
                 funcSurface = font.render(str(text), True, (245,40,40))
             hovSurface = medFont.render(str(hovDesc), True, (100,230,230))
-            screen.blit(hovSurface, (WID-10-(0.75*textLength(str(hovDesc))), HEI-95))
+            screen.blit(hovSurface, (WID-10-textLength(str(hovDesc),'',False), HEI-95))
         if pg.mouse.get_pressed()[2] and cDesc!='':
             if funcSurface.get_rect(topleft=(int(x),int(y))).inflate(0,-2).collidepoint(pg.mouse.get_pos()):
                 funcSurface = font.render(str(cDesc), True, (110,190,245))
@@ -286,13 +310,13 @@ def renderText(text, x, y, color, hovDesc='', size=True, cDesc=''): #Code for re
             hovSurface = medFont.render(str(hovDesc), True, (100,230,230))
             if pg.mouse.get_pressed()[0] and cDesc!='':
                 funcSurface = medFont.render(str(cDesc), True, (110,190,245))
-            screen.blit(hovSurface, (WID-10-(0.75*textLength(str(hovDesc))), HEI-95))
+            screen.blit(hovSurface, (WID-10-textLength(str(hovDesc),'',False), HEI-95))
         screen.blit(funcSurface, (int(x),int(y)))
         return funcSurface.get_rect(topleft=(int(x),int(y)))
 
 def renderHov(hovDesc): #Renders a hover description ONLY. Used for clickable text.
     hovSurface = medFont.render(str(hovDesc), True, (100,230,230))
-    screen.blit(hovSurface, (WID-10-(0.65*textLength(str(hovDesc))), HEI-95))
+    screen.blit(hovSurface, (WID-10-textLength(str(hovDesc),'',False), HEI-95))
 
 def makeNewLists(): #Resets tracking lists when switching networks
     global rssiList,noiseList,txrList
@@ -338,6 +362,7 @@ class Network(): #Each network around you is stored as an object
         self.text=''
         self.remrssi = r
         self.avgrssi = int(r)
+        self.linked = False
         self.supportedphy = []
         if "+" in self.channel or "-" in self.channel:
             self.channel = self.channel.split(',')[0]
@@ -361,11 +386,16 @@ class Network(): #Each network around you is stored as an object
         else:
             self.de=False
             return False
-    def updateColor(self,c): #Runs whenever there's a color change
+    def updateColor(self,c,msg=''): #Runs whenever there's a color change
         self.color = c
         self.text = smallFont.render(str(self.ssid),True,(c))
         if c==(150,180,150) or c==(180,150,150) or c==(90,110,90) or c==(110,90,90):
             self.defaultColor=c
+        if msg=='':
+            self.linked = False
+        else:
+            self.msg = msg
+            self.linked = True
     def updatePos(self,n=''): #Run every update frame + some other frames to update screen position of the text. THIS NEEDS UPDATING
         if n!='':
             self.num = n
@@ -676,7 +706,7 @@ while not done: #Main pygame loop
     except:
         pass
 #Testing Hov and Click --------------------------------------------------------------------------
-    linked=0
+    linked = []
     for i in nDic.values():
         if i.num<len(rectList) and rectList[i.num][0].collidepoint(pg.mouse.get_pos()):
             hovNum,hovData = [i.num,i.bssid]
@@ -702,31 +732,24 @@ while not done: #Main pygame loop
             clickNum,clickData = ['','']
     for i in nDic.values():
         if i.bssid==iLst[9]:
-            i.updateColor((40,255,40)) #Bright Green if its the one you're connected to  
-    if hovNum!='':
+            i.updateColor((40,255,40)) #Bright Green if its the one you're connected to
+    if hovNum!=clickNum and clickNum!='':
+        c3=0
+        linked = getLinked(nDic[clickData].bssid)
         for j in nDic.values():
-            if nDic[hovData].bssid[2:]==j.bssid[2:] and hovData!=j:
-                j.updateColor((40,80,180)) #Dull Blue if the first two numbers are the same
-                linked+=1
-            if nDic[hovData].bssid[0:14]==j.bssid[0:14] and hovData!=j and nDic[hovData].ssid==j.ssid:
-                j.updateColor((190,190,40)) #Yellow if 0:14 match and same ssid
-            if nDic[hovData].bssid[0:15]==j.bssid[0:15] and hovData!=j:
-                a = abs(int(nDic[hovData].bssid[15],16)-int(j.bssid[15],16))
-                j.updateColor((60+min(a*30,180),220-min(a*30,180),60)) #a=1 = green, up to a=6 red
-                if a<3:
-                    linked+=1
-            if nDic[hovData].bssid[0:16]==j.bssid[0:16] and hovData!=j:
-                if nDic[hovData].bssid==j.bssid:
-                    j.updateColor((230,120,100)) #Light Orange for the one you are hovering over
-                else:
-                    j.updateColor((40,200,210)) #Cyan if the networks are very similar
-
+            if j.linked and nDic[hovData].bssid in linked:
+                renderText(j.ssid,WID-10-textLength(j.ssid,j.bssid,False),HEI-235-(c3*10),j.color,'',False,j.bssid)
+                pg.draw.line(screen, (j.color),(j.xpos+textLength(j.ssid,j.bssid,False),j.ypos+5),(WID-12-textLength(j.ssid,j.bssid,False),HEI-232-(c3*10)))
+                c3+=1
+    if hovNum!='':
+        linked = getLinked(nDic[hovData].bssid)
     if clickNum!='':
         try:
             clickNum = list(nDic.keys()).index(clickData)
             nDic[clickData].updateColor((240,20,20)) #Bright red if clicked on
         except:
             pass
+        c3=0
 #Rendering RSSI View & Bar Graph --------------------------------------------------------------------------
     try:
         HOV=nDic[hovData]
@@ -855,26 +878,38 @@ while not done: #Main pygame loop
                     currentTxt += e.unicode
                     ableToType = False
         renderText(currentTxt,WID-10-textLength(currentTxt),HEI-115,(230,230,230),"User-Inputted description for this network.")
+#Display data when hovering over a network ----------------------------------------------------------------------------       
         if bLookup=='' or remHov!=hovNum:
             try:
                 bLookup = bsLookupDic[i.bssid.upper()[0:8]]
             except:
                 bLookup = 'Unknown'
         remHov=hovNum
-#Display data when hovering over a network ----------------------------------------------------------------------------
-        if bLookup!='':
-            d,e = distCalc(i.avgrssi, int(channel))
-            renderText("RSSI: " + str(round(i.avgrssi,1)) + " - " + str(len(i.rssi)), WID-10-textLength("RSSI:" + str(round(i.avgrssi,1)) + " - " + str(len(i.rssi)),str(d) + " +/- " + str(e) + " Feet"),HEI-175,(230,230,230),"Signal strength of this network / Accuracy from 1-10.",True,str(d) + " +/- " + str(e) + " Feet")
-            renderText("SSID: " + netName, WID-10-textLength("SSID: " + netName,"SSID: " + netName + " - Channel: " + str(channel)),HEI-195, colSet, "SSID of this network", True,"SSID: " + netName + " - Channel: " + str(channel))
+        bLookupTwo=''
+        d,e = distCalc(i.avgrssi, int(channel))
+        renderText("RSSI: " + str(round(i.avgrssi,1)) + " - " + str(len(i.rssi)), WID-10-textLength("RSSI:" + str(round(i.avgrssi,1)) + " - " + str(len(i.rssi)),str(d) + " +/- " + str(e) + " Feet"),HEI-175,(230,230,230) if i.avgrssi>-80 else (max(80,230-(i.avgrssi+80)*-7.5),max(80,230-(i.avgrssi+80)*-7.5),max(80,230-(i.avgrssi+80)*-7.5)),"Signal strength of this network / Accuracy from 1-10.",True,str(d) + " +/- " + str(e) + " Feet")
+        renderText("SSID: " + netName, WID-10-textLength("SSID: " + netName,"SSID: " + netName + " - Channel: " + str(channel)),HEI-195, colSet, "SSID of this network", True,"SSID: " + netName + " - Channel: " + str(channel))
+        if bLookup!="Unknown":
             renderText(bLookup,WID-10-textLength(bLookup,str(i.bssid)),HEI-155,(230,230,230),"Manufacturer of this network's router.",True,str(i.bssid))
-            if iLst[9]==i.bssid:
-                renderText("Current Network", WID-10-textLength("Current Network"),HEI-215,(40,240,40))
-            try:
-                r,c,r2 = secLookup(i.security,i.channel)[0:2]
-                renderText(r, WID-10-textLength(r,"Rating: " + str(r2)), HEI-135, c, "Security rating of this network. Sort of subjective.",True,"Rating: " + str(r2))
-            except:
-                r,c = secLookup(i.security,i.channel)[0:2]
-                renderText(r, WID-10-textLength(r,str(i.security) if (i.bssid!=iLst[9]) else str(iLst[10])), HEI-135, c, "Security rating of this network. Sort of subjective.",True, str(i.security) if (i.bssid!=iLst[9]) else str(iLst[10]))
+        if iLst[9]==i.bssid:
+            renderText("Current Network", WID-10-textLength("Current Network"),HEI-215,(40,240,40))
+        try:
+            r,c,r2 = secLookup(i.security,i.channel)[0:2]
+            renderText(r, WID-10-textLength(r,"Rating: " + str(r2)), HEI-135, c, "Security rating of this network. Sort of subjective.",True,"Rating: " + str(r2))
+        except:
+            r,c = secLookup(i.security,i.channel)[0:2]
+            renderText(r, WID-10-textLength(r,str(i.security) if (i.bssid!=iLst[9]) else str(iLst[10])), HEI-135, c, "Security rating of this network. Sort of subjective.",True, str(i.security) if (i.bssid!=iLst[9]) else str(iLst[10]))
+        if bLookup=="Unknown":
+            for j in nDic.values():
+                if nDic[i.bssid].bssid[2:15]==j.bssid[2:15] and i!=j:
+                    try:
+                        bLookupTwo = bsLookupDic[j.bssid.upper()[0:8]]
+                        renderText(bLookupTwo,WID-10-textLength(bLookupTwo,str(i.bssid)),HEI-155,(60,100,200),"Manufacturer of this network's router.",True,str(j.bssid))
+                    except:
+                        pass
+            if bLookupTwo=='':
+                renderText("Unknown",WID-10-textLength("Unknown",str(i.bssid)),HEI-155,(160,160,160),"Manufacturer of this network's router.",True,str(i.bssid))
+
     else:
         bLookup=''
         descRects=[]
@@ -957,26 +992,26 @@ while not done: #Main pygame loop
                     tSpd = not tSpd
                     stopped = True
             txtrect = renderText(str(iLst[4]), 10,60,(230,230,230),"Shows Current SSID. Click to select this network.",True,str(iLst[9]) if iLst[9]!=0 else "Finding BSSID...")
-            if txtrect.inflate(0,-2).collidepoint(pg.mouse.get_pos()) and pg.mouse.get_pressed()[0]:
+            if txtrect.inflate(0,-2).collidepoint(pg.mouse.get_pos()) and pg.mouse.get_pressed()[0] and len(nDic)!=0:
                 for i in nDic.keys():
                     if i==iLst[9]:
                         clickNum=list(nDic.keys()).index(i)
                         clickData=i
                         break
     if len(nDic)==0 and iLst[5]!=-1 and timesScanned>0:
-        renderText("No Nearby Networks",10,80,(240,20,20),"No nearby networks to scan!")
+        txtrect = renderText("No Nearby Networks",10,80,(240,20,20),"No nearby networks to scan!")
     elif updatesPaused:
-        txtrect = renderText("Updates Off",10,80,(230,120,20),"Scanning has been manually disabled.",True,str(linked-1) + " Linked Networks" if linked!=0 else str(len(set(nameList))) + " - " + str(knownNetworks) + "/" + str(len(nDic)))
+        txtrect = renderText("Updates Off",10,80,(230,120,20),"Scanning has been manually disabled.",True,str(len(linked)) + " Linked Networks" if len(linked)>1 else "Single Network" if len(linked)!=0 else str(len(set(nameList))) + " - " + str(knownNetworks) + "/" + str(len(nDic)))
     elif len(nDic)>0 and iLst[5]==-1:
-        renderText("Updates Disabled",10,80,(190,190,20),"New updates are disabled.",True,str(linked-1) + " Linked Networks" if linked!=0 else str(len(set(nameList))) + " - " + str(knownNetworks) + "/" + str(len(nDic)))
+        txtrect = renderText("Updates Disabled",10,80,(190,190,20),"New updates are disabled.",True,str(len(linked)) + " Linked Networks" if len(linked)>1 else "Single Network" if len(linked)!=0 else str(len(set(nameList))) + " - " + str(knownNetworks) + "/" + str(len(nDic)))
     elif iLst[5]==-1 and len(nDic)==0:
-        renderText("Scan Disabled",10,80,(240,120,120),"Scanning only works if Wifi is enabled.")
+        txtrect = renderText("Scan Disabled",10,80,(240,120,120),"Scanning only works if Wifi is enabled.")
     else:
         if len(nDic)==0:
-            renderText("Searching." if counter%18<6 else "Searching.." if counter%18<12 else "Searching...",10,80,(160,160,160),"Scanning networks around you...")
+            txtrect = renderText("Searching." if counter%18<6 else "Searching.." if counter%18<12 else "Searching...",10,80,(160,160,160),"Scanning networks around you...")
         else:    
-            txtrect = renderText("Scan Active", 10,80,(110,245,20),"Scanning is active!",True,str(linked-1) + " Linked Networks" if linked!=0 else str(len(set(nameList))) + " - " + str(knownNetworks) + "/" + str(len(nDic)))
-    if txtrect.inflate(0,-2).collidepoint(pg.mouse.get_pos()) and pg.mouse.get_pressed()[0] and not stopped:
+            txtrect = renderText("Scan Active", 10,80,(110,245,20),"Scanning is active!",True,str(len(linked)) + " Linked Networks" if len(linked)>1 else "Single Network" if len(linked)!=0 else str(len(set(nameList))) + " - " + str(knownNetworks) + "/" + str(len(nDic)))
+    if txtrect.inflate(0,-2).collidepoint(pg.mouse.get_pos()) and pg.mouse.get_pressed()[0] and not stopped and len(nDic)>0:
         updatesPaused = not updatesPaused
         stopped = True
     if phyMode!='' and phyMode!='N/A':
@@ -1082,7 +1117,7 @@ while not done: #Main pygame loop
         phyMode = ''
         makeNewLists()
     storeSsid = iLst[4]
-    renderText("a0.43a", WID-40,5, tuple(i+max(0,180-(dFromPt(WID-40,5)*3)) for i in bgColor),"Version Alpha 0.43b - (December 16th)", False)
+    renderText("a0.44", WID-40,5, tuple(i+max(0,180-(dFromPt(WID-40,5)*3)) for i in bgColor),"Version Alpha 0.44 - (Jan 1st 2023)", False)
     if pg.mouse.get_pos()[0]>WID-43 and pg.mouse.get_pos()[1]<20 and pg.mouse.get_pressed()[0]:
         os.system("open https://jswessler.carrd.co/")
     pg.display.flip()
