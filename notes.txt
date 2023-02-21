@@ -695,7 +695,7 @@ d0:d3:e0:a4:95:21\Unity Hall 500
 ac:a3:1e:f3:3e:22\Founders Hall
 20:a6:cd:00:45:82\Innovation Studio
 94:64:24:c1:4e:e1\Higgins Labs
-9a:9d:5d:d6:36:f7\90 Canton St
+9a:9d:5d:d6:36:f7\1 Metcalf Rd
 ac:a3:1e:f3:62:04\Founders Hall
 d0:d3:e0:a4:eb:90\Unity Hall 500
 ac:a3:1e:f3:66:64\Founders Hall
@@ -819,7 +819,7 @@ ac:a3:1e:5c:cf:81\Atwater Kent
 d8:84:66:7d:61:65\Logan Airport A21
 94:64:24:c1:ae:b0\Campus Center
 94:b4:0f:29:62:d1\CC 2nd Floor
-9a:9d:5d:d6:36:f1\90 Canton St
+9a:9d:5d:d6:36:f1\1 Metcalf Rd
 94:b4:0f:29:63:12\CC 2nd Floor
 d0:d3:e0:a4:95:31\Unity Hall 500
 ac:a3:1e:f3:5c:62\Founders Hall
@@ -1442,3 +1442,22 @@ e4:95:6e:0d:71:e0\Armenian Church
 48:2f:6b:ff:10:b0\East Hall
 48:2f:6b:ff:10:b1\East Hall
 1a:3b:f3:47:b3:db\5 Metcalf Rd
+1a:3b:f3:47:b3:dc\5 Metcalf Rd
+94:64:24:c0:7c:72\Stratton Hall 308
+94:64:24:c0:7c:70\Stratton Hall 308
+94:64:24:c0:7c:71\Stratton Hall 308
+94:64:24:c0:7c:51\Stratton Hall 308
+94:64:24:c0:7c:50\Stratton Hall 308
+94:64:24:c0:7c:52\Stratton Hall 308
+94:64:24:c2:d2:d0\Fuller Labs 311 B
+94:64:24:c2:d2:d1\Fuller Labs 311 B
+94:64:24:c2:d2:d2\Fuller Labs 311 B
+94:64:24:c2:d2:f1\Fuller Labs 311 B
+94:64:24:c2:d2:f2\Fuller Labs 311 B
+94:64:24:c2:d2:f0\Fuller Labs 311 B
+94:64:24:c3:17:f2\Fuller Labs 311 F
+94:64:24:c3:17:f0\Fuller Labs 311 F
+94:64:24:c3:17:f1\Fuller Labs 311 F
+94:64:24:c3:17:d2\Fuller Labs 311 F
+94:64:24:c3:17:d0\Fuller Labs 311 F
+94:64:24:c3:17:d1\Fuller Labs 311 F
