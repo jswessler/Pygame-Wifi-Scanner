@@ -4,8 +4,11 @@
 # Automatically get supported channels/gens
 # Color code more things!
 
-# Fix download/upload speed bar
-
+from copy import copy
+import math, subprocess, threading, os, time
+import pygame as pg
+import numpy as np
+from time import process_time, sleep
 
 try:
     f = open('/Users/jswessler/Desktop/psw.txt', 'r')
@@ -13,11 +16,6 @@ try:
     f.close()
 except:
     pass
-from copy import copy
-import math, subprocess, threading, os, time
-import pygame as pg
-import numpy as np
-from time import process_time, sleep
 
 if userPassword=='':
     userPassword=input("You need to put in your login password for this analyzer to work! Input it here: ")
@@ -25,19 +23,19 @@ if userPassword=='':
 #Your Mac login password. Yeah, I know this is sus. I'm working on a fix for this.
 
 #---Functions
-def scan(): #Scans all networks around you using airport scan (or -s).
+def scan(): #Scans all networks around you using airport scan (or airport -s).
     global nDic,timesScanned,readyToScan,pauseFrame,bssList,phyMode,renderFrame,hold,first,scanStatus,scFrame,lbrCounter,lbrsiEnabled
     stScanTime = process_time()
-    scan_cmd = subprocess.getstatusoutput([f'echo %s | sudo -S -k airport scan' % userPassword])
-    scanOutput = convCmd(scan_cmd)[1:]
+    scan_cmd = subprocess.getstatusoutput([f'echo %s | sudo -S -k airport scan' % userPassword]) #This line generally takes about 3-4 seconds to run.
+    scanOutput = convCmd(scan_cmd)[1:] #Reformat terminal output into a list for processing
     bssList = []
-    if updatesPaused:
+    if updatesPaused: #Immidiately return if updates are disabled and this function is run
         readyToScan=True
         scanStatus = (230,120,20)
         scFrame = 12
         return
     pauseFrame=True #Communicating with main loop, makes it pause on the next frame.
-    while hold: #Ghetto aquiring lock so that nDic doesn't change during main loop. This code generally takes about 3-4s to run.
+    while hold: #Ghetto aquiring lock so that nDic doesn't change during main loop.
         pass
     if len(scanOutput)==0: #This occasionally happens, waits a bit then returns to try again. Yellow circle if this happens.
         scanStatus = (230,230,20)
@@ -137,7 +135,7 @@ def convCmd(scanout): #Converts terminal outputs to python friendly lists
 def writeData(): #Runs constantly, uses airport info (or -i) to get info about the network you're currently connected to.
     global iLst,iRunCount,gotPhy
     iRunCount+=1
-    if iRunCount%20==0 or iLst[9]=='': #Gets your BSSID occasionally (requires sudo, but takes about 0.5s to run)
+    if iRunCount%30==0 or iLst[9]=='': #Gets your BSSID occasionally (requires sudo, but takes about 0.5s to run)
         gotPhy = True
         scan_cmd = subprocess.getstatusoutput([f'echo %s | sudo -S -k airport info -l' % userPassword])
         #scan_cmd = subprocess.getstatusoutput([f'airport info -l'])
@@ -195,8 +193,8 @@ def convertToDict(lis): #Converts Lists to Dicts.
     res_dct = {lst[i]: lst[i + 1] for i in range(0, len(lst), 2)}
     return res_dct
 
-matWeights = [0.25,0.25,0.25,0.25,0.25,0.25,0.75,1,4,4,5,0.25]
-oneWeights = [0.25,-0.5,-1,-1,-1,-1,-6,-6,-2,-2,2.5,0.25]
+matWeights = [0.25,0.25,0.25,0.25,0.25,0.25,0.75,1,4.75,5.25,3,0.25]
+oneWeights = [0.25,-0.5,-1,-1,-1,-1,-6,-6,-2,-5.5,2.5,0.25]
 totWeights = [0.05,0.1,0.25,0.55,0.8,1,1.05,1.1,1.15,1.7,1.95,1.975,2]
 
 def getLinked(cli): #Returns a list of networks that are linked to "cli"
@@ -451,9 +449,9 @@ cols = [(45,230,205),(210,55,20),(245,130,20),(225,200,20),(75,245,20),(230,35,2
 channelList = [1, 6, 11, 36, 40, 44, 48, 52, 56, 60, 64, 100, 104, 108, 112, 116, 120, 124, 128, 132, 136, 140, 144, 149, 153, 157, 161, 165]
 # Change if your mac has different channels it can connect to. (Will be automated in the future)
 
-connected = hold = readyToScan = ableToType = showSpds = secCircles = True
+hold = readyToScan = ableToType = showSpds = secCircles = True
 renderFrame = updatesPaused = pauseFrame = done = stopClick = gotPhy = lbrsiEnabled = False
-iRunCount = timesScanned = maxSpd = hovData = counter = rememberRssi = rememberNoise = scFrame = spFrame = rememberTxr = avgSec = avgDiff = lbrCounter = lbrDiff = remLbr = nTra = downSpd = upSpd = 0
+iRunCount = timesScanned = maxSpd = hovData = counter = rememberRssi = scFrame = spFrame = avgSec = avgDiff = lbrCounter = lbrDiff = remLbr = nTra = downSpd = upSpd = 0
 avgLbr = 1.01
 remHov = -1
 barsMaxHeight = updateSpeed = fpsSetting = 1
@@ -600,7 +598,6 @@ while not done: #Main pygame loop
     averageNoise = sum(noiseList)/(1+min(counter,720-1))
     averageNoise = round(averageNoise,4)
     avgTxr = round(sum(txrList)/(1+min(counter,180-1)),1)
-    rememberTxr = avgTxr
     pg.draw.line(screen, (200,200,200), (15,40), (WID-40,40), 2) #main bar 15-920 (905 length, WID-55)
     pg.draw.circle(screen, (50,80,240), (int((averageRssi+10)*((WID-55)/95)+(WID-40)),41),10)
     renderText(round(averageRssi,2), ((averageRssi+10)*((WID-55)/95))+(WID-59),15,(230,230,230),"Current RSSI (Signal Strength) of connected network.",True,str(distCalc(averageRssi,int(iLst[5]))[0]) + " Ft")
@@ -695,7 +692,7 @@ while not done: #Main pygame loop
         else:
             chnSig=''
     if chnSig!='':
-        renderText(str(round(abs(chnSig),2)),bat-45,HEI-51,(230,230,230),"Total signal in this channel.")
+        renderText(str(round(abs(chnSig),2)),bat-45,HEI-51,(230,230,230))
         pg.draw.line(screen, (20,160,160) if int(i[2])>11 else (160,20,160), (int((chnSig+10)*((WID-55)/95)+(WID-40)),31),(int((chnSig+10)*((WID-55)/95)+(WID-40)),51),2) #Draws a line on the main bar that represents the RSSI of that channel
     try:
         pg.draw.line(screen, (20,240,100), (int((sigInArea+10)*((WID-55)/95)+(WID-40)),31),(int((sigInArea+10)*((WID-55)/95)+(WID-40)),51),2)
@@ -762,8 +759,12 @@ while not done: #Main pygame loop
         except:
             pass
         i.render()
-        pg.draw.rect(screen, i.color, rectList[c3][0]) #IF THIS LINE HAS AN INDEX ERROR YOUR MAC HAS DIFFERENT CHANNELS IT CONNECTS TO
+        try:
+            pg.draw.rect(screen, i.color, rectList[c3][0])
+        except IndexError as e:
+            raise Exception("Your mac has different channels it connects to. Edit line 451") from e
         c3+=1
+   
     #Render Diff bar on the top right (Middle)--------------------------------------------------------------------------
     if avgDiff<1:
         pg.draw.line(screen, tuple(max(80,int(i)*int(scFrame)/12) for i in scanStatus) if scFrame>0 and avgDiff<1.9 else (80,80,80),(WID-20,56),(WID-20,26),5)
@@ -773,6 +774,7 @@ while not done: #Main pygame loop
     if pg.Rect(WID-25,28,10,26).collidepoint(pg.mouse.get_pos()):
         renderText(str(round(avgDiff,2)),WID-10-textLength(str(round(avgDiff,2))),HEI-120,(230,230,230))
         renderHov("Shows average delta in network signals over time.")
+    
     #Render LBR bar on the top right (Left)--------------------------------------------------------------------------
     if lbrsiEnabled:
         pg.draw.line(screen, (80,80+scFrame*13.333,80+scFrame*13.333) if lbrDiff>1 else (80,80+scFrame*lbrDiff*13.333,80) if lbrDiff>0 else (140,140,80) if lbrCounter==0 else (80,80,80), (WID-30,56),(WID-30,26),5)
@@ -786,6 +788,7 @@ while not done: #Main pygame loop
         if pg.mouse.get_pressed()[0] and not stopClick:
             lbrsiEnabled = not lbrsiEnabled
             stopClick = True
+    
     #Render Quality bar on the top right (Right)--------------------------------------------------------------------------
     if iLst[7]!=-1 and iLst[5]!=-1 and iLst[4]!="None":
         qual = round(sum(rssiList[0:10])/10-sum(noiseList[0:50])/50,3)
@@ -795,9 +798,17 @@ while not done: #Main pygame loop
         if pg.Rect(WID-15,28,10,26).collidepoint(pg.mouse.get_pos()):
             renderText(str(min(50,round(qual,1))) + "/50",WID-10-textLength(str(min(50,round(qual,1))) + "/50"),HEI-120,(230,230,230))
             renderHov("Shows quality of your connection.")
+    
     #Render bottom dynamic text and bar lines --------------------------------------------------------------------------
     if len(nDic)>0:
-        renderText(round(abs(sigInArea),2), bat-45, HEI-31, (230,230,230), "Total radio flux in area. (Estimate only)")
+        pg.draw.line(screen,((80+scFrame*6,80+scFrame*6,80+scFrame*6)),(bat-45,HEI-24),(bat-5,HEI-24),7)
+        pg.draw.line(screen,(sigInArea*-2.4,240-sigInArea*-2.4,40),(bat-45,HEI-24),(bat-45+(40-sigInArea/-2.5),HEI-24),7)
+        r = pg.Rect(bat-45,HEI-34,40,20)
+        if r.collidepoint(pg.mouse.get_pos()):
+            renderText(round(abs(sigInArea),2), bat-45, HEI-51, (230,230,230), "Total flux in area. (Estimate only)")
+        
+        
+        
         avgSec/=len(nDic)+1
         if unknown:
             txtRect = renderText(round(avgSec,3), 30+wi2, HEI-31, (255,255,0), "Network with unknown security! Time to fill it in!")
@@ -833,7 +844,7 @@ while not done: #Main pygame loop
                     flines=[]
                     if pg.mouse.get_pos()[0]<WID/18 and pg.mouse.get_pos()[1]<HEI/20 or pg.mouse.get_pressed()[2]: #If your mouse is in the box, it will save this note to most linked networks.
                         for j in nDic.values():
-                            if j.bssid[0:16]==i.bssid[0:16] or (j.bssid[0:14]==i.bssid[0:14] and abs(int(i.bssid[15],16)-int(j.bssid[15],16))<3):
+                            if j.msg>0.6:
                                 flines.append(j)
                     else:
                         flines.append(i)
@@ -1061,7 +1072,6 @@ while not done: #Main pygame loop
     hovNum = ''
     frameTime = endTimer-startTimer
     rememberRssi = averageRssi
-    rememberNoise = averageNoise
     fpsList.pop(-1)
     fpsList.insert(0,frameTime)
     fTimeSec = 1/(sum(fpsList)/len(fpsList))

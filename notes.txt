@@ -1081,15 +1081,9 @@ ac:a3:1e:58:87:c0\Higgins 116 FR
 94:64:24:c3:02:42\Library
 94:64:24:c3:02:40\Library
 94:64:24:c3:02:41\Library
-94:64:24:c2:4a:b2\Library
-94:64:24:c2:4a:b1\Library
-94:64:24:c2:4a:b0\Library
 94:64:24:c4:2a:21\Library
 94:64:24:c4:2a:20\Library
 94:64:24:c4:2a:22\Library
-94:64:24:c2:4a:d1\Library
-94:64:24:c2:4a:d0\Library
-94:64:24:c2:4a:d2\Library
 94:64:24:b9:af:00\Library
 94:64:24:b9:af:01\Library
 94:64:24:b9:af:02\Library
@@ -1110,7 +1104,6 @@ ac:a3:1e:58:87:c0\Higgins 116 FR
 94:64:24:c3:d2:31\Library
 94:64:24:c3:d2:32\Library
 94:b4:0f:2e:46:e2\Library
-94:64:24:c4:6a:42\Library
 94:64:24:c1:a3:d2\Library
 94:64:24:c2:b7:d2\Campus Center
 94:64:24:c4:d6:72\Campus Center
@@ -1387,12 +1380,6 @@ e4:95:6e:0d:71:e0\Armenian Church
 94:64:24:b9:70:b0\Library
 94:64:24:b9:70:b2\Library
 94:64:24:b9:70:b1\Library
-94:64:24:c1:64:d2\Library
-94:64:24:c1:64:d1\Library
-94:64:24:c1:64:d0\Library
-94:64:24:c1:64:f2\Library
-94:64:24:c1:64:f0\Library
-94:64:24:c1:64:f1\Library
 94:64:24:c4:3f:22\Library
 94:64:24:c4:3f:20\Library
 94:64:24:c4:3f:21\Library
@@ -1461,3 +1448,99 @@ e4:95:6e:0d:71:e0\Armenian Church
 94:64:24:c3:17:d2\Fuller Labs 311 F
 94:64:24:c3:17:d0\Fuller Labs 311 F
 94:64:24:c3:17:d1\Fuller Labs 311 F
+94:64:24:c5:4b:a2\Salisbury 405
+94:64:24:c5:4b:a0\Salisbury 405
+94:64:24:c5:4b:a1\Salisbury 405
+94:64:24:c5:4b:c0\Salisbury 405
+94:64:24:c5:4b:c2\Salisbury 405
+94:64:24:c5:4b:c1\Salisbury 405
+94:64:24:c1:b2:32\Salisbury 4th Floor
+94:64:24:c1:b2:30\Salisbury 4th Floor
+94:64:24:c1:b2:31\Salisbury 4th Floor
+94:64:24:c1:b2:11\Salisbury 4th Floor
+94:64:24:c1:b2:10\Salisbury 4th Floor
+94:64:24:c1:b2:12\Salisbury 4th Floor
+94:64:24:c1:fa:40\Salisbury 4th Floor
+94:64:24:c1:fa:62\Salisbury 4th Floor
+94:64:24:c1:fa:60\Salisbury 4th Floor
+94:64:24:c1:fa:61\Salisbury 4th Floor
+94:64:24:c1:fa:41\Salisbury 4th Floor
+94:64:24:c1:fa:42\Salisbury 4th Floor
+94:64:24:c3:fa:b2\Salisbury 4th Floor
+94:64:24:c3:fa:b0\Salisbury 4th Floor
+94:64:24:c3:fa:b1\Salisbury 4th Floor
+94:64:24:c3:fa:d0\Salisbury 4th Floor
+94:64:24:c3:fa:d2\Salisbury 4th Floor
+94:64:24:c3:fa:d1\Salisbury 4th Floor
+94:64:24:c0:d0:81\Salisbury Labs
+94:64:24:c0:d0:80\Salisbury Labs
+94:64:24:c0:d0:a1\Salisbury Labs
+94:64:24:c0:d0:a2\Salisbury Labs
+94:64:24:c0:d0:a0\Salisbury Labs
+94:64:24:c0:d0:82\Salisbury Labs
+94:64:24:c2:4a:d0\Library 3rd Floor FL Corner
+94:64:24:c2:4a:d2\Library 3rd Floor FL Corner
+94:64:24:c2:4a:d1\Library 3rd Floor FL Corner
+94:64:24:c2:4a:b0\Library 3rd Floor FL Corner
+94:64:24:c2:4a:b1\Library 3rd Floor FL Corner
+94:64:24:c2:4a:b2\Library 3rd Floor FL Corner
+94:64:24:c4:6a:62\Library 3rd Floor F
+94:64:24:c4:6a:60\Library 3rd Floor F
+94:64:24:c4:6a:61\Library 3rd Floor F
+94:64:24:c4:6a:40\Library 3rd Floor F
+94:64:24:c4:6a:41\Library 3rd Floor F
+94:64:24:c4:6a:42\Library 3rd Floor F
+94:64:24:c1:64:f1\Library 3rd Floor FRR
+94:64:24:c1:64:f2\Library 3rd Floor FRR
+94:64:24:c1:64:f0\Library 3rd Floor FRR
+94:64:24:c1:64:d2\Library 3rd Floor FRR
+94:64:24:c1:64:d0\Library 3rd Floor FRR
+94:64:24:c1:64:d1\Library 3rd Floor FRR
+94:64:24:c4:04:a0\Library 3rd Floor BR
+94:64:24:c4:04:a1\Library 3rd Floor BR
+94:64:24:c4:04:c0\Library 3rd Floor BR
+94:64:24:c4:04:c1\Library 3rd Floor BR
+94:64:24:c4:04:c2\Library 3rd Floor BR
+94:64:24:c4:04:a2\Library 3rd Floor BR
+94:64:24:c4:c9:51\Salisbury 115 F
+94:64:24:c4:c9:50\Salisbury 115 F
+94:64:24:c4:c9:72\Salisbury 115 F
+94:64:24:c4:c9:70\Salisbury 115 F
+94:64:24:c4:c9:52\Salisbury 115 F
+94:64:24:c4:c9:71\Salisbury 115 F
+94:64:24:c5:21:92\Salisbury 115 BL
+94:64:24:c5:21:90\Salisbury 115 BL
+94:64:24:c5:21:91\Salisbury 115 BL
+94:64:24:c5:21:71\Salisbury 115 BL
+94:64:24:c5:21:70\Salisbury 115 BL
+94:64:24:c5:21:72\Salisbury 115 BL
+94:64:24:c1:23:90\Salisbury 115 BR
+94:64:24:c1:23:91\Salisbury 115 BR
+94:64:24:c1:23:92\Salisbury 115 BR
+94:64:24:c1:23:b0\Salisbury 115 BR
+94:64:24:c1:23:b1\Salisbury 115 BR
+94:64:24:c1:23:b2\Salisbury 115 BR
+94:64:24:c2:7c:20\Project Center 212
+94:64:24:c2:7c:22\Project Center 212
+94:64:24:c2:7c:21\Project Center 212
+94:64:24:c2:7c:00\Project Center 212
+94:64:24:c2:7c:01\Project Center 212
+94:64:24:c2:7c:02\Project Center 212
+94:64:24:c1:ea:42\Higgins House
+94:64:24:c1:ea:41\Higgins House
+94:64:24:c1:ea:20\Higgins House
+94:64:24:c1:ea:21\Higgins House
+94:64:24:c1:ea:40\Higgins House
+94:64:24:c1:ea:22\Higgins House
+94:b4:0f:2b:ba:c2\Higgins House
+94:b4:0f:2b:ba:c0\Higgins House
+94:b4:0f:2b:ba:c4\Higgins House
+94:b4:0f:2b:ba:d0\Higgins House
+94:b4:0f:2b:ba:d4\Higgins House
+94:b4:0f:2b:ba:d2\Higgins House
+94:64:24:c0:66:60\Higgins House
+94:64:24:c0:66:61\Higgins House
+94:64:24:c0:66:62\Higgins House
+94:64:24:c0:66:82\Higgins House
+94:64:24:c0:66:80\Higgins House
+94:64:24:c0:66:81\Higgins House
