@@ -10,6 +10,8 @@ import pygame as pg
 import numpy as np
 from time import process_time, sleep
 
+
+#Tries to get your login password from a desktop txt file
 try:
     f = open('/Users/jswessler/Desktop/psw.txt', 'r')
     userPassword = f.read()
@@ -17,134 +19,204 @@ try:
 except:
     pass
 
+#Gives you a reminder if your password wasn't filled in from the text file.
 if userPassword=='':
     userPassword=input("You need to put in your login password for this analyzer to work! Input it here: ")
     print("If you don't want to have to do this every time, go to line 9 of the python code and put the password there.")
 #Your Mac login password. Yeah, I know this is sus. I'm working on a fix for this.
 
 #---Functions
-def scan(): #Scans all networks around you using airport scan (or airport -s).
+
+#Scans all networks around you using airport -s
+def airportScan():
     global nDic,timesScanned,readyToScan,pauseFrame,bssList,phyMode,renderFrame,hold,first,scanStatus,scFrame,lbrCounter,lbrsiEnabled
-    stScanTime = process_time()
+    
+    #Runs terminal command
     scan_cmd = subprocess.getstatusoutput([f'echo %s | sudo -S -k airport scan' % userPassword]) #This line generally takes about 3-4 seconds to run.
-    scanOutput = convCmd(scan_cmd)[1:] #Reformat terminal output into a list for processing
+    scanOutput = convTerCmd(scan_cmd)[1:] #Reformat terminal output into a list for processing
     bssList = []
-    if updatesPaused: #Immidiately return if updates are disabled and this function is run
+
+    #Immidiately return is updates are disabled
+    if updatesPaused:
         readyToScan=True
         scanStatus = (230,120,20)
         scFrame = 12
         return
-    pauseFrame=True #Communicating with main loop, makes it pause on the next frame.
-    while hold: #Ghetto aquiring lock so that nDic doesn't change during main loop.
+    
+    #Communication loop with the main pygame loop, makes it so nDic isn't updated while the main loop is running and vice versa.
+    pauseFrame=True
+    while hold:
         pass
-    if len(scanOutput)==0: #This occasionally happens, waits a bit then returns to try again. Yellow circle if this happens.
-        scanStatus = (230,230,20)
+
+    #Error checking if airport scan didn't go through (which occassionally happens, this is a macOS bug).
+    if len(scanOutput)==0:
+        scanStatus = (230,230,20) #Yellow circle
         scFrame = 12
         pauseFrame = False
-        time.sleep(1.25)
+        time.sleep(1.25) #Waits a bit so we don't get the same error over and over again
         readyToScan = True
         return
-    nDicU={}
-    for net in scanOutput: #For each network in the network list
+
+    #Fills in data from each network in the network list
+    for net in scanOutput:
         if net!=[]:
             temp=[]
+
+            #IBSS networks are weird. They always show up at the end, and we don't want to count them, so exit processing if we see one
             if net[1]=='IBSS':
                 break
+
+            #Filter process for networks that aren't at the end.
             while net[-3]!='Y' and net[-3]!='N':
                 net = net[:-1]
+
+            #General Filtering. 
             j = net[0:(len(net)-6)]
             if len(j)>1:
                 j=' '.join(j)
             else:
                 j=j[0]
-            temp.append(str(j)) #Fixed SSID
+
+            #Starts adding data from the terminal output.
+            temp.append(str(j)) #SSID (that was fixed from filtering steps above)
             temp.append(net[-6]) #BSSID
             temp.append(net[-4]) #Channel
-            if net[-1].endswith("')") or net[-1].endswith('")'): #Fix for last entry in the list
+            
+            #Another fix for the last entry in the list. We have to do this because of the weird terminal output
+            if net[-1].endswith("')") or net[-1].endswith('")'):
                 temp.append(net[-1][:-2]) #Security
             else:
-                temp.append(net[-1])
+                temp.append(net[-1]) #Security
+            
+            #Continuing to add data
             temp.append(int(net[-5])) #RSSI
             temp.append(net[-2]) #Country Code
+
+            #Updates nDic (main dictionary of networks).
             if str(net[-6]) in nDic.keys():
-                nDic.get(net[-6]).update(net[-5])
+                nDic.get(net[-6]).update(int(net[-5]))
             else:
                 nDic.update({str(net[-6]): Network(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5])})
+            
+            #Adds the BSSID to a running list of BSSID's to count unique networks
             bssList.append(net[-6])
-    c3=0
-    for net in nDic.copy().values():
-        if not net.step():
-            pass
+    
+    #Once we are done processing networks, we sort and filter the final list.
+
+    
+    #Sorts nDic by RSSI (least to most), then Channel, then SSID
     nDic = dict(sorted(nDic.items(), key=lambda item: item[1].ssid))
     nDic = dict(sorted(nDic.items(), key=lambda item: int(item[1].channel)))
     nDic = dict(sorted(nDic.items(), key=lambda item: item[1].avgrssi, reverse=True))
-    for net in nDic.values():
-        net.updatePos(c3)
-        c3+=1
-    scanStatus = (120,245,20) #Green for complete
+    #Updates the position for every network in the list.
+    #This step seems weird, but we are actually running every network's "step" function.
+    count=0
+    for net in nDic.copy().values():
+        net.updatePos(count)
+        count+=1
+
+        
+    #Finishing up. We return a green circle for completion.
+    scanStatus = (120,245,20) 
     scFrame = 12
-    if lbrsiEnabled:
-        lbrCounter+=1
-    else:
-        lbrCounter=0
     renderFrame=True
     pauseFrame=False
     timesScanned+=1
     first = True
-    endScanTime = process_time()
-    tme = endScanTime-stScanTime #Time Taken (can detect errors)
-    if phyMode=='' or phyMode=='802.11' or timesScanned%10==0: #Will occasionally get your PHY mode if it isn't already known
+
+    #LBRSI stands for "list based RSSI". If this is enabled we taken the average RSSI from the last 10 scans for each network
+    #which gets displayed as the actual RSSI. This is a counter that keeps track of how many scans have been done.
+    if lbrsiEnabled:
+        lbrCounter+=1
+    else:
+        lbrCounter=0
+    
+    #Extra processing step if we don't know the phy mode, or every 10 cycles. We use an extra command to get PHY mode.
+    #This command also gets your mac's supported channels, so this can be automated. I will be implementing this in the future
+    if phyMode=='' or phyMode=='802.11' or timesScanned%10==0:
         scan_cmd = subprocess.getstatusoutput([f'system_profiler SPAirPortDataType'])
-        sod = convCmd(scan_cmd)
+        sod = convTerCmd(scan_cmd)
         scFrame = 12
         try:
-            phyMode = (sod[26][2])
+            phyMode = (sod[25][2])
             scanStatus = (40,240,240) #Cyan if its successful
         except:
             phyMode = ''
             scanStatus = (40,60,160) #Dark Blue if not
+
+    #Resets for main loop, waits a bit to make sure main loop gets a frame in
     time.sleep(0.1)
     readyToScan = True
 
-def scanSpd(): #Uses netstat -w command to get your network throughoutput. nTra is [download,upload]
+#Uses netstat -w command to get your network throughoutput.
+def getRates():
     global nTra,spFrame
+
+    #Command explanation of netstat -w
+    # "1" says to scan 1 time
+    # "-3" says I THINK to wait 3 seconds
     scan_cmd = subprocess.getstatusoutput([f'netstat -w 1 | head -3'])
-    sod = convCmd(scan_cmd)
+    sod = convTerCmd(scan_cmd)
+
+    #nTra gets both your upload and download speed in the format [upload, download]
     nTra = [int(sod[2][2]),int(sod[2][5])]
     spFrame = 4
     
-
-def distCalc(rssi,channel=1): #Gets approximate distance from the router using RSSI and channel.
+#Gets approximate distance from a router using RSSI and channel.    
+#RSSI being lower means higher distance, channel being higher means lower distance
+#Higher channels travel less well through the air, so a given RSSI is closer at a higher channel.
+def distCalc(rssi,channel=1):
     d = 1
+
+    #For 5GHZ networks
     if channel>11:
         d = math.pow(8.75,(0-float(rssi))/(45+(channel/180)))-1
         err = d/4
+    
+    #For 2.4GHZ networks
     else:
         d = math.pow(9.4,(0-float(rssi))/(42+((channel-1)/30)))-1
         err = d/6
     return round(d,1),round(err,1)
 
-def convCmd(scanout): #Converts terminal outputs to python friendly lists
+
+#Converts terminal outputs to python friendly lists
+def convTerCmd(scanout):
+
+    #Convert to a list of strings split by line
     scan_out_lines = str(scanout).split("\\n")
     scan_out_data = []
+
+    #Convert into a list of lists, where each sublist is seperated by spaces and each list is seperated by line
     for each_line in scan_out_lines:
         split_line = [e for e in each_line.split(" ") if e != ""]
         scan_out_data.append(split_line)
     return scan_out_data
 
-def writeData(): #Runs constantly, uses airport info (or -i) to get info about the network you're currently connected to.
+
+#Scans your current network using airport -I
+def airportActive():
     global iLst,iRunCount,gotPhy
+
+    #We keep track of how many times this is run
     iRunCount+=1
-    if iRunCount%30==0 or iLst[9]=='': #Gets your BSSID occasionally (requires sudo, but takes about 0.5s to run)
+
+    #Gets your BSSID occasionally. This command is an extension of the normal command, it requries sudo and takes about 0.5s to run
+    if iRunCount%30==0 or iLst[9]=='':
         gotPhy = True
-        scan_cmd = subprocess.getstatusoutput([f'echo %s | sudo -S -k airport info -l' % userPassword])
-        #scan_cmd = subprocess.getstatusoutput([f'airport info -l'])
-        sod = convCmd(scan_cmd)
+        scan_cmd = subprocess.getstatusoutput([f'echo %s | sudo -S -k airport -I' % userPassword])
+        sod = convTerCmd(scan_cmd)
+
+        #if WiFi is off, this command will just return "AirPort"
         if len(sod)==1 or "AirPort" in sod:
             iLst=[0,0,0,0,"Wifi Off",-1,0,0,0,0,0,'','',0] #Wifi Off
             return
+        
+        #Gets your BSSID from the 11th item in the list
         bss = sod[11][1]
         bssList = bss.split(":")
+
+        #Sets temp if the current BSSID is in bssList from the scan command.
         temp = ''
         for i in bssList:
             if len(i)==1:
@@ -152,13 +224,19 @@ def writeData(): #Runs constantly, uses airport info (or -i) to get info about t
             else:
                 temp+=i+":"
         bss = temp[:-1]
+    
+    #If it decides it doesn't need to get your BSSID
     else:
-        scan_cmd = subprocess.getstatusoutput([f'airport info -l'])
-        sod = convCmd(scan_cmd)
+        scan_cmd = subprocess.getstatusoutput([f'airport -I'])
+        sod = convTerCmd(scan_cmd)
+        
+        #Same as above
         if len(sod)==1 or "AirPort" in sod:
             iLst=[0,0,0,0,"Wifi Off",-1,0,0,0,0,0,'','',0] #Wifi Off
             return
         bss = iLst[9]
+    
+    #Sets all of the requested values using the return from the command
     try:
         rssi = int(sod[0][3]) #Signal Strength
         ssid = ' '.join(map(str,sod[12][1:])) #Name of network
@@ -170,21 +248,29 @@ def writeData(): #Runs constantly, uses airport info (or -i) to get info about t
         gi = int(sod[14][1]) #Guard interval (generally 400 or 800)
         auth = str(sod[10][2]) #Security of network
         c = sod[16][1] #Channel
+
+        #Formatting & determining width. Usually its 20 and its not used for anything right now.
         if ',' in c:
             d = c.split(',')
             channel = d[0]
             width=d[1][:2]
         else:
             width=20
+
+            #Gets rid of double quote anomalies in the channel name. 
             if '"' in c:
                 channel = c.split('"')[0]
             else:
                 channel = c.split("'")[0]
-        iLst=[rssi,noise,Tx,Mx,ssid,channel,state,nss,gi,bss,auth,width] #live data (updated frequently)
+        
+        #Live Data
+        iLst=[rssi,noise,Tx,Mx,ssid,channel,state,nss,gi,bss,auth,width]
+    
+    #If the data collection didn't work because you aren't connected
     except:
-        iLst=[0,0,0,0,"Not Connected",0,0,0,0,0,0,'','',0] #No network
+        iLst=[0,0,0,0,"Not Connected",0,0,0,0,0,0,'','',0] #No network (different than wifi off)
 
-def convertToDict(lis): #Converts Lists to Dicts. 
+def convertToDict(lis): #Converts Lists to Dicts in a special way. 
     lst=[]
     for i in lis:
         j = i.split('\\')
@@ -193,56 +279,106 @@ def convertToDict(lis): #Converts Lists to Dicts.
     res_dct = {lst[i]: lst[i + 1] for i in range(0, len(lst), 2)}
     return res_dct
 
-matWeights = [0.25,0.25,0.25,0.25,0.25,0.25,0.75,1,4.75,5.25,3,0.25]
-oneWeights = [0.25,-0.5,-1,-1,-1,-1,-6,-6,-2,-5.5,2.5,0.25]
+
+#Weights for the getLinked function coming up
+matWeights = [0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.5,1.5,1.5,1,0.25]
+oneWeights = [0,0,0,0,0,0,-3,-3,-1,0,2,3]
 totWeights = [0.05,0.1,0.25,0.55,0.8,1,1.05,1.1,1.15,1.7,1.95,1.975,2]
 
-def getLinked(cli): #Returns a list of networks that are linked to "cli"
+
+#Returns a list of networks that are clinked to "cli". We do this by assigning a likelihood to every network
+def getLinked(cli):
     linked = []
-    for j in nDic.values():
+
+    #This function uses a point system. 16.5 points = 100% match, 0 points = 0% match. We use a sigmoid function to give a "maybe" answer
+    for j in nDic.values(): 
         lProb = 0
         mat = 0
         num = 0
         num2=0
-        while num<17:
+        #Base calculations (Runs through each number individaully), can get up to 6.5 points
+        while num<=16: #For every number in the BSSID (which is always 16 long)
             if cli[num]!=':':
+
+                #This code allows us to loop around at 0 and F
                 a = abs(int(cli[num],16)-int(j.bssid[num],16))
                 if a==15 or a==14:
                     a=1
+                
+                #If the weights 
                 if j.bssid[num]==cli[num]:
                     lProb+=matWeights[num2]
                     mat+=1
+                
+                #We allow being up to 2 off after the first 6 numbers
                 elif a==1 or (a==2 and num2>5):
                     lProb+=oneWeights[num2]
                 num2+=1
             num+=1
+
+        #Reduction if RSSI's aren't similar
+        lProb-=min(1.5,abs(nDic[cli].avgrssi-j.avgrssi)*0.1)
+
+        #Reduction is RSSI's are very different
+        if abs(nDic[cli].avgrssi-j.avgrssi)>15:
+            lProb-=(abs(nDic[cli].avgrssi-j.avgrssi)-15)*0.4
+        
+        #Addition if 2nd to last pair match (As these are the most important), and if last pair match
+        if cli[12]==j.bssid[12] and cli[13]==j.bssid[13]:
+            lProb+=7.5
+            if cli[15]==j.bssid[15]:
+                lProb+=1.5
+        
+        #Addition if all of first 3 pairs match
+        if (cli[n]==j.bssid[n] for n in range(0,8)):
+            lProb+=1
+        
+        #Changes the score using totWeights depending on the number of matches
         lProb*=totWeights[round(mat)]
-        lProb-=min(1,abs(nDic[cli].avgrssi-j.avgrssi)*0.1) #Reduction if RSSI's aren't similar (up to 2)
-        if abs(nDic[cli].avgrssi-j.avgrssi)>10:
-            lProb-=(abs(nDic[cli].avgrssi-j.avgrssi)-10)
-        if nDic[cli].ssid!=j.ssid: #Slight reduction if SSID's don't match (up to 2)
+
+        #Recution if SSID's don't match
+        if nDic[cli].ssid!=j.ssid:
             lProb*=0.95
-        if nDic[cli].ssid==j.ssid and mat>2: #Boost if slight match, same ssid
-            lProb*=1.25
-            lProb-=1
-        lProb = round(1/(1+math.exp(-0.2825*(lProb-16.25)))*1.0101,4) #Final Sigmoid function
+            lProb-=0.5
+        
+        #Addition if there is at least some match, and the same SSID
+        if nDic[cli].ssid==j.ssid and mat>2:
+            lProb*=1.2
+        
+        #Final sigmoid & color functions. This also calls the updateMsg for each network to update their color
+        lProb = round(1/(1+math.exp(-0.2825*(lProb-16.25)))*1.0101,4)
         if lProb>0.3:
             r = max(20,j.color[0]-max(0,(lProb-0.55)*750))
             g = min(240,j.color[1]+(lProb-0.3)*250)
             b = min(240,j.color[2]+max(80,(lProb-0.8)*1050))
             j.updateColor((r,g,b))
         j.updateMsg(lProb)
+
+        #Updates the network you're hovering over to be orange
         if j.bssid==nDic[cli].bssid:
             j.updateColor((230,120,100))
+        
+        #Networks are considered linked if they have a probability of 60% or higher.
         if lProb>0.6:
             linked.append(j.bssid)
     return sorted(list(set(linked)), key=lambda x: nDic[x].avgrssi)
 
-def secLookup(sec, chn, cc): #Looks up security rating from the dictionary further down.
+
+#Looks up security rating of a network from the dictionary further down.
+def secLookup(net):
     global secs
-    secValue = -1
+    
+    #Sets parameters from the network
+    sec = net.security
+    chn = net.channel
+    cc = net.countryCode
+    secValue = -1 #Default Case
+
+    #Open Network (no password) case
     if "NONE" in sec:
         return ["Open Network",(160,160,160),-1]
+    
+    #Getting data from security dictionary
     for i in secs.items():
         if i[0]==sec.upper():
             if type(i[1])==list:
@@ -250,13 +386,21 @@ def secLookup(sec, chn, cc): #Looks up security rating from the dictionary furth
             else:
                 secValue = i[1]
             break
+    
+    #If the security isn't in the dictionary, prompts you to add a new entry by having a yellow icon
     if secValue==-1:
         print(sec)
         return ["Unknown!",(240,240,20),-1]
+    
+    #If the network is 2.4GHz but not channels 1 6 or 11, remove 1 point (as these networks are weird and shouldn't exist)
     if chn<12 and chn!=1 and chn!=6 and chn!=11:
         secValue-=1
+
+    #If the country code is not US, remove 1 point
     if cc!="US":
         secValue-=1
+
+    #Minimum of 1
     if secValue<1:
         secValue=1
     if secValue>11:
@@ -272,7 +416,10 @@ def secLookup(sec, chn, cc): #Looks up security rating from the dictionary furth
     else:
         return ["Very Low",(240,40,40),secValue] #WEP networks (very old routers)
 
+
+#Gets text length of a string, useful for right-aligning text
 def textLength(text,text2='',size=True): #Gets textlength of a string, useful for right-aligning text
+    #Can work on big or small text
     if size:
         if pg.mouse.get_pressed()[2] and text2!='':
             tempsurface = font.render(str(text2),False,(20,20,20))
@@ -284,24 +431,34 @@ def textLength(text,text2='',size=True): #Gets textlength of a string, useful fo
         else:
             tempsurface = smallFont.render(str(text),False,(20,20,20))
     r = tempsurface.get_rect()
-    return r.size[0]
+    return r.size[0] #Returns width of rect
 
-def renderText(text, x, y, color, hovDesc='', size=True, cDesc=''): #Code for rendering text and hovering description. Has 2 size options by seting True/False
+#Custom code for rendering text and hov description. Has 2 size options with True/False
+def renderText(text, x, y, color, hovDesc='', size=True, cDesc=''):
+    #Larger Size
     if size:
         funcSurface = font.render(str(text), True, color)
+
+        #If you're hovering over the text, render a hovtext with hovDesc
         if funcSurface.get_rect(topleft=(int(x),int(y))).inflate(0,-2).collidepoint(pg.mouse.get_pos()):
             funcSurface = font.render(str(text), True, (110,190,245))
             if pg.mouse.get_pressed()[0]:
                 funcSurface = font.render(str(text), True, (245,40,40))
             hovSurface = medFont.render(str(hovDesc), True, (100,230,230))
             screen.blit(hovSurface, (WID-10-textLength(str(hovDesc),'',False), HEI-100))
+        
+        #If you right click, then change the text to cDesc
         if pg.mouse.get_pressed()[2] and cDesc!='':
             if funcSurface.get_rect(topleft=(int(x),int(y))).inflate(0,-2).collidepoint(pg.mouse.get_pos()):
                 funcSurface = font.render(str(cDesc), True, (110,190,245))
             else:
                 funcSurface = font.render(str(cDesc), True, color)
+        
+        #This line is the only thing that draws textsurfaces to the screen. Nothing else should!!
         screen.blit(funcSurface, (int(x),int(y)))
         return funcSurface.get_rect(topleft=(int(x),int(y)))
+    
+    #Small Size
     else:
         funcSurface = medFont.render(str(text), True, color)
         if funcSurface.get_rect(topleft=(int(x),int(y))).inflate(0,-2).collidepoint(pg.mouse.get_pos()):
@@ -315,103 +472,129 @@ def renderText(text, x, y, color, hovDesc='', size=True, cDesc=''): #Code for re
         screen.blit(funcSurface, (int(x),int(y)))
         return funcSurface.get_rect(topleft=(int(x),int(y)))
 
-def renderHov(hovDesc): #Renders a hover description ONLY. Used for clickable text.
+
+#Renders a hover description ONLY, no text. Used for clickable text.
+def renderHov(hovDesc):
     hovSurface = medFont.render(str(hovDesc), True, (100,230,230))
     screen.blit(hovSurface, (WID-10-textLength(str(hovDesc),'',False), HEI-100))
 
-def makeNewLists(): #Resets tracking lists when switching networks
+
+#Resets tracking lists when switching networks or turning WiFi on/off
+def makeNewLists():
     global rssiList,noiseList,txrList
     rssiList = list(np.zeros(100))
     noiseList = list(np.zeros(720))
     txrList = list(np.zeros(180))
 
-def calculateRSum(rssis,c=''): #Calculates RSSI Sum using math.pow. Actually good math!
+
+#Calculates RSSI Sum of all networks around you
+def calculateRSum(rssis,c=''):
     sigInArea=0
     for i in rssis:
         if c=='':
-            sigInArea+=math.pow(10,(100+float(i.avgrssi))/10)
+            sigInArea+=math.pow(10,(100+float(i.avgrssi))/10) #Inverse exponential
         elif c==int(i.channel):
             sigInArea+=math.pow(10,(100+float(i.avgrssi))/10)
     s = math.log10(sigInArea)*10-100
     return s
 
-def dFromPt(x,y): #Gets mouse distance from given point
+
+#Gets the distance between a given point and the mouse cursor
+def dFromPt(x,y): 
     return (abs(pg.mouse.get_pos()[0]-x)**2 + abs(pg.mouse.get_pos()[1]-y)**2)**0.5
 
-class Network(): #Each network around you is stored as an object
+
+#General Network class. Each network around you is stored as an instance.
+class Network():
     def __init__(self, s, b, c, se, r, cc):
-        self.ssid = s
-        self.bssid = b
-        self.channel = c
-        self.security = se
-        self.countryCode = cc
-        self.rssi = [int(r)]
-        self.de = False
-        self.color=(90,90,90)
-        self.xpos=0
-        self.rect=pg.Rect(0,0,1,1)
-        self.ypos=0
-        self.defaultColor=self.color
-        self.text=''
-        self.remrssi = r
-        self.avgrssi = int(r)
-        self.linked = False
-        self.msg = ''
-        self.supportedphy = []
+        self.ssid = s #SSID (Name)
+        self.bssid = b #BSSID (Unique ID)
+        self.channel = c #Channel of network (1-165)
+        self.security = se #Security of network (given from terminal command)
+        self.countryCode = cc #Country code of network (Shoddy, only gets this data with sudo every now and then, not very useful)
+        self.rssi = [int(r)] #RSSI (Signal strength)
+        self.de = False #Delete Flag
+        self.color=(90,90,90) #Color to be rendered as
+        self.xpos=0 #X position on screen
+        self.ypos=0 #Y position on screen
+        self.txtRect=pg.Rect(0,0,1,1) #Rect of text (updated with every step, default case here)
+        self.barRect = pg.Rect(0,0,1,1) #Rect of bar
+        self.defaultColor=self.color #Default color (Used for resetting hov/click colors on step)
+        self.text='' #Text to show on screen
+        self.remrssi = r #Remember RSSI for determining changes over time using AvgDiff (middle bar on top right)
+        self.avgrssi = int(r) #Average RSSI if lbrssi is turned on
+        self.linked = False #Default case, True if this network is linked to the one you're hovering over
+        self.msg = '' #Default string case. This turns into an int when a msg is needed
+
+        #Extra channel formatting (+ and - aren't pruned by airportScan)
         if "+" in self.channel or "-" in self.channel:
             self.channel = int(self.channel.split(',')[0])
         else:
             self.channel = int(self.channel)
-        if self.channel<12 and self.channel not in [1,6,11]:
+        if self.channel<12 and self.channel not in [1,6,11]: #Defaults to show as channel 1 if it isn't 1, 6, or 11
             self.barChn = 1
         else:
             self.barChn = self.channel
-    def update(self, r): #Run every update frame
+    
+    #This gets run every time an RSSI update is pushed (every time airportScan is run)
+    def update(self, r):
         self.remrssi = self.rssi[-1]
+
+        #lbrssi averages out the RSSI over 10 inputs to add 1 decimal place
         if lbrsiEnabled:
             self.rssi.append(int(r))
             if len(self.rssi)>10:
                 self.rssi.pop(0)
+            self.avgrssi = round(sum(self.rssi)/len(self.rssi),1)
         else:
-            self.rssi = [int(r)]
-    def updatePHY(self, phys, ssid): #Run whenever needed. UNUSED AT THE MOMENT
-        self.supportedphy=phys
-        self.supposedssid = ssid
-    def step(self): #Runs every update frame.
-        self.avgrssi = round(sum(self.rssi)/len(self.rssi),1)
-        if self.bssid not in bssList:
-            self.de=True
-            nDic.pop(self.bssid)
-            return True
-        else:
-            self.de=False
-            return False
-    def updateColor(self,c): #Runs whenever there's a color change
+            self.rssi = [int(r)] #Otherwise just use the actual RSSI
+            self.avgrssi = int(self.rssi[0])
+        
+    #Runs whenever there's a color change
+    def updateColor(self,c):
         self.color = c
-        self.text = smallFont.render(str(self.ssid),True,(c))
-        if c==(150,180,150) or c==(180,150,150) or c==(90,110,90) or c==(110,90,90):
+        self.text = smallFont.render(str(self.ssid),True,(c)) #Forces a color change without having to do updatePos
+        if c==(150,180,150) or c==(180,150,150) or c==(90,110,90) or c==(110,90,90): #There are four default colors
             self.defaultColor=c
+
+    #Updates the msg of this network
     def updateMsg(self,msg=''):
         if msg=='':
             self.msg = -1
         else:
             self.msg = min(1,float(msg))
-    def updatePos(self,n=''): #Run every update frame + some other frames to update screen position of the text. THIS NEEDS UPDATING
+    
+    #Run every update frame + some other frames to update screen position of the text.
+    def updatePos(self,n=''):
+        #If this network isn't in the bssList, then delete this network as you are no longer near it. Step Section
+        if self.bssid not in bssList:
+            self.de=True
+            nDic.pop(self.bssid)
+        else:
+            #Otherwise just do nothing
+            self.de=False
+        
+        #Update Pos Section
         if n!='':
-            self.num = n
+            self.num = n #Updates its own number (only matters if its an updateframe and the order changed)
         mod = max(6,(HEI/15)-10)
+
+        #Code to position itself on screen
         self.xpos = (self.avgrssi+10)*((WID-55)/95)+WID-35
         self.ypos = 53+(self.num%mod)*9
         self.text = smallFont.render(str(self.ssid),True,(self.color))
-        self.rect = self.text.get_rect()
-        for i in range(self.num-int(mod),0,-int(mod)):
-            if list(nDic.values())[i].rect.left<self.rect.right:
-                self.rect.move_ip(-10,0)
-                self.xpos-=10
-    def render(self): #Draws itself to screen
+        self.txtRect = self.text.get_rect()
+        # for i in range(self.num-int(mod),0,-int(mod)):
+        #     if list(nDic.values())[i].txtRect.left<self.txtRect.right:
+        #         self.txtRect.move_ip(-10,0)
+        #         self.xpos-=10
+    
+    #Draws itself to the screen
+    def render(self):
         screen.blit(self.text if not pg.mouse.get_pressed()[2] else smallFont.render(str(self.bssid),True,(self.color)),(self.xpos,self.ypos))
         if self.msg!=-1:
             renderText(str(round(self.msg*100,1)) + "%",self.xpos+10+textLength(self.ssid,self.bssid,False),self.ypos,(min(240,80+(max(0,(self.msg-0.005)*7200))),min(240,80+(self.msg*1440)),min(240,80+(self.msg*360))) if self.msg<0.6 else (20,240,240),'',False)
+
 #---User-Defined Parameters
 
 secs = { #Dictionary of network securities
@@ -442,13 +625,17 @@ secs = { #Dictionary of network securities
     "WEP": 1
 }
 
-gens = ['a', 'b', 'g', 'n', 'ac', 'ax'] #Dictionary of network generations. This assumes you have WiFi 6
-spds = [11, 54, 54, 144, 400, 867] #Dictionary of network speeds.
-cols = [(45,230,205),(210,55,20),(245,130,20),(225,200,20),(75,245,20),(230,35,245)] #Colors used for different generations
+#Dictionary of network generations. This assumes you have WiFi 6
+gens = ['a', 'b', 'g', 'n', 'ac', 'ax']
+#Dictionary of network speeds
+spds = [11, 54, 54, 144, 400, 867]
+#Colors used for different generations
+cols = [(45,230,205),(210,55,20),(245,130,20),(225,200,20),(75,245,20),(230,35,245)] 
 
+#Change if your mac has different channels it can connect to. (Will be automated in the future)
 channelList = [1, 6, 11, 36, 40, 44, 48, 52, 56, 60, 64, 100, 104, 108, 112, 116, 120, 124, 128, 132, 136, 140, 144, 149, 153, 157, 161, 165]
-# Change if your mac has different channels it can connect to. (Will be automated in the future)
 
+#Starting Variables
 hold = readyToScan = ableToType = showSpds = secCircles = True
 renderFrame = updatesPaused = pauseFrame = done = stopClick = gotPhy = lbrsiEnabled = False
 iRunCount = timesScanned = maxSpd = hovData = counter = rememberRssi = scFrame = spFrame = avgSec = avgDiff = lbrCounter = lbrDiff = remLbr = nTra = downSpd = upSpd = 0
@@ -463,6 +650,7 @@ iLst=[0,0,0,0,"Not Connected",0,0,0,0,0,0,0]
 fps = 30
 scanStatus = (0,0,0)
 
+#Starting out, make new lists and set more variables, pygame stuff
 makeNewLists()
 fpsList = list(np.zeros(60))
 spdList = []
@@ -474,11 +662,13 @@ font = pg.font.SysFont('None', 25)
 medFont = pg.font.SysFont('None', 18)
 smallFont = pg.font.SysFont('None', 16)
 
+#Open up notes.txt and import it into notesLines
 f = open('notes.txt', 'r')
 tLines = f.readlines()
 notesLines = convertToDict(tLines)
 f.close()
 
+#Open up bssid.txt and import it into bsLookupDic for router identification
 f = open('bssid.txt', 'r')
 lines = f.readlines()
 bsLookupDic = {}
@@ -486,23 +676,35 @@ for i in lines:
     bsLookupDic.update({str(i[0:2]) + ":" + str(i[2:4]) + ":" + str(i[4:6]): str(i[7:-1])})
 f.close()
 
+#Starting width & Height. Retina display shennanigans will double this for 1920x1200
 WID = 960
 HEI = 600
 screen = pg.display.set_mode((WID, HEI), pg.RESIZABLE)
 remWidth = WID
 remHeight = HEI
+
+#Default width of bottom bars
 wi2 = 72
 wi5 = 573
 wit = WID-wi2-wi5-145
 
-while not done: #Main pygame loop
+
+
+#Main Pygame Loop
+while not done:
     moving,hold,unknown=[False,False,False]
+
+    #Start a timer to determine fps & cpu usage
     startTimer = process_time()
     clock = pg.time.Clock()
+    
+    #Check for pygame events. 
     all_events = [e for e in pg.event.get()]
     for e in all_events:
         if e.type == pg.QUIT:
             done = True
+    
+    #Sets background color based on certain parameters
     if len(nDic)==0:
         try:
             if iLst[5]==-1:
@@ -514,6 +716,8 @@ while not done: #Main pygame loop
     else:
         bgColor = (40,40,40)
     screen.fill(bgColor)
+
+    #Resets certain variables if you click on the top right corner
     if pg.mouse.get_pos()[0]<WID/20 and pg.mouse.get_pos()[1]<HEI/22:
         r = pg.Rect(0,0,WID/20,HEI/22)
         if pg.mouse.get_pressed()[0]:
@@ -521,9 +725,12 @@ while not done: #Main pygame loop
             pg.draw.rect(screen, (180,20,20,0.25),r)
         else:
             pg.draw.rect(screen, (20,160,180,0.25),r)
+
 #Calculate bottom bar scaling, mouse pos. THIS COULD USE UPDATING --------------------------------------------------------------------------
     xmouse,ymouse = pg.mouse.get_pos()
     if ymouse<HEI-10 and ymouse>HEI-40:
+
+        #Adjusting the two bars on the left
         if xmouse>wi2-50 and xmouse<wi2+150 and pg.mouse.get_pressed()[0]:
             if offset=='':
                 offset = xmouse-wi2-15
@@ -532,6 +739,8 @@ while not done: #Main pygame loop
             if wi2<48:
                 wi2=48
             wi5=WID-wi2-wit-145
+
+        #Adjusting the two bars on the right
         if xmouse>wi2+wi5 and xmouse<wi2+wi5+200 and pg.mouse.get_pressed()[0]:
             if offset=='':
                 offset = xmouse-wi2-wi5-65
@@ -543,8 +752,10 @@ while not done: #Main pygame loop
             if wit<75:
                 wit=75
                 wi5 = WID-wi2-wit-155
+
+    #Shows a button to set bar widths back to default if they are not default
     if wi2!=72 or wi5!=573 or wit!=170:
-        if (math.pow(xmouse-8,2))+(math.pow(ymouse-(HEI-24),2))<144:
+        if dFromPt(8,HEI-24)<50:
             pg.draw.circle(screen, (110,190,245),(8,HEI-24),5)
             renderHov("Click to reset bottom row scales.")
             if pg.mouse.get_pressed()[0]:
@@ -559,7 +770,7 @@ while not done: #Main pygame loop
 # Starting off, reset lists, set scan delay --------------------------------------------------------------------------
     if iLst[6]=='init' or iLst[6]=='associating' or iLst[6]=='authenticating' or iLst[-3]==0:
         delay = 2
-    if updateSpeed==2:
+    elif updateSpeed==2:
         delay = 4
     elif updateSpeed==1:
         delay = 12
@@ -572,14 +783,14 @@ while not done: #Main pygame loop
     if delay!=-1 and counter%math.ceil(delay)==0:
         iLFrame = 4
         gotPhy = False
-        t = threading.Thread(target=writeData)
+        t = threading.Thread(target=airportActive)
         t.start()
     if readyToScan and not updatesPaused:
         readyToScan=False
-        t = threading.Thread(target=scan)
+        t = threading.Thread(target=airportScan)
         t.start()
     if counter%(65+delay) == 1 and showSpds:
-        t = threading.Thread(target=scanSpd)
+        t = threading.Thread(target=getRates)
         t.start()
     if iLst[4]!="Not Connected":
         rssiList.pop(-1)
@@ -749,7 +960,9 @@ while not done: #Main pygame loop
     scTemp=0
     c3=0
     for i in nDic.values():
-        scTemp = secLookup(i.security,i.channel,i.countryCode)
+        scTemp = secLookup(i)
+
+        #if secCircles is set, then draw circles next to each network
         if secCircles:            
             pg.draw.circle(screen, scTemp[1], (i.xpos-5, i.ypos+4), 3) #Draws a circle next to each name for security
         try:
@@ -787,8 +1000,7 @@ while not done: #Main pygame loop
         renderText(str(round(avgLbr,2)) + "/10",WID-10-textLength(str(round(avgLbr,2)) + "/10"),HEI-120,(230,230,230))
         if pg.mouse.get_pressed()[0] and not stopClick:
             lbrsiEnabled = not lbrsiEnabled
-            stopClick = True
-    
+            stopClick = True 
     #Render Quality bar on the top right (Right)--------------------------------------------------------------------------
     if iLst[7]!=-1 and iLst[5]!=-1 and iLst[4]!="None":
         qual = round(sum(rssiList[0:10])/10-sum(noiseList[0:50])/50,3)
@@ -798,7 +1010,6 @@ while not done: #Main pygame loop
         if pg.Rect(WID-15,28,10,26).collidepoint(pg.mouse.get_pos()):
             renderText(str(min(50,round(qual,1))) + "/50",WID-10-textLength(str(min(50,round(qual,1))) + "/50"),HEI-120,(230,230,230))
             renderHov("Shows quality of your connection.")
-    
     #Render bottom dynamic text and bar lines --------------------------------------------------------------------------
     if len(nDic)>0:
         pg.draw.line(screen,((80+scFrame*6,80+scFrame*6,80+scFrame*6)),(bat-45,HEI-24),(bat-5,HEI-24),7)
@@ -806,9 +1017,6 @@ while not done: #Main pygame loop
         r = pg.Rect(bat-45,HEI-34,40,20)
         if r.collidepoint(pg.mouse.get_pos()):
             renderText(round(abs(sigInArea),2), bat-45, HEI-51, (230,230,230), "Total flux in area. (Estimate only)")
-        
-        
-        
         avgSec/=len(nDic)+1
         if unknown:
             txtRect = renderText(round(avgSec,3), 30+wi2, HEI-31, (255,255,0), "Network with unknown security! Time to fill it in!")
@@ -904,7 +1112,7 @@ while not done: #Main pygame loop
         renderText("SSID: " + netName, WID-10-textLength("SSID: " + netName,"SSID: " + netName + " - Channel: " + str(channel)),HEI-200, colSet, "SSID of this network", True,"SSID: " + netName + " - Channel: " + str(channel))
         if iLst[9]==i.bssid:
             renderText("Current Network", WID-10-textLength("Current Network"),HEI-220,(40,240,40))
-        r,c,v = secLookup(i.security,i.channel,i.countryCode)
+        r,c,v = secLookup(i)
         renderText(r + " Security (" + str(v) + ")" if v!=-1 else r, WID-10-textLength(r + " Security (" + str(v) + ")" if v!=-1 else r,str(i.security) if (i.bssid!=iLst[9]) else str(iLst[10])), HEI-140, c, "Security rating of this network. Sort of subjective.",True, str(i.security) if (i.bssid!=iLst[9]) else str(iLst[10]))
     else:
         bLookup=''
@@ -1023,7 +1231,7 @@ while not done: #Main pygame loop
             try:
                 renderText("802.11" + str(gens[probGen]), bat,HEI-55,colSet,"Guessing PHY mode based on max speed.",True,"Probably Wifi " + str(1+probGen))
             except:
-                renderText("Finding PHY Mode...", bat,HEI-55,(230,230,230),"Finding PHY Mode...")
+                renderText("Searching...", bat,HEI-55,(230,230,230),"Finding PHY Mode...")
     if avgTxr!=0:
         pg.draw.line(screen, colSet, (bat,HEI-24), ((int(math.log10(avgTxr/1.2)*(wit/3)+bat), HEI-24)), 2)
         pg.draw.line(screen, (80,80,80), ((int(math.log10(maxSpd/1.2)*(wit/3)+bat), HEI-24)), (WID-30,HEI-24), 2)
@@ -1110,7 +1318,7 @@ while not done: #Main pygame loop
         phyMode = ''
         makeNewLists()
     storeSsid = iLst[4]
-    renderText("a0.45", WID-40,5, tuple(i+max(0,180-(dFromPt(WID-40,5)*3)) for i in bgColor),"Version Alpha 0.45 - (Feb 21st 2023)", False)
+    renderText("a0.5a", WID-40,5, tuple(i+max(0,180-(dFromPt(WID-40,5)*3)) for i in bgColor),"Version Alpha 0.5a - (Jul 14th 2023)", False)
     if pg.mouse.get_pos()[0]>WID-43 and pg.mouse.get_pos()[1]<20 and pg.mouse.get_pressed()[0]:
         os.system("open https://jswessler.carrd.co/")
     pg.display.flip()
